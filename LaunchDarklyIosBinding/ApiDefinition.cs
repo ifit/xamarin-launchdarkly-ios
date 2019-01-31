@@ -644,8 +644,30 @@ namespace LaunchDarkly
 		void ThrowException (string name, string reason);
 	}
 
-	// @interface LDClient : NSObject
-	[BaseType (typeof(NSObject))]
+    // @protocol ClientDelegate <NSObject>
+    [Protocol, Model]
+    [BaseType (typeof (NSObject))]
+    interface ClientDelegate
+    {
+        // @optional -(void)userDidUpdate;
+        [Export ("userDidUpdate")]
+        void UserDidUpdate ();
+
+        // @optional -(void)userUnchanged;
+        [Export ("userUnchanged")]
+        void UserUnchanged ();
+
+        // @optional -(void)featureFlagDidUpdate:(NSString *)key;
+        [Export ("featureFlagDidUpdate:")]
+        void FeatureFlagDidUpdate (string key);
+
+        // @optional -(void)serverConnectionUnavailable;
+        [Export ("serverConnectionUnavailable")]
+        void ServerConnectionUnavailable ();
+    }
+
+    // @interface LDClient : NSObject
+    [BaseType (typeof(NSObject))]
 	interface LDClient
 	{
 		// @property (readonly, assign, nonatomic) BOOL isOnline;
@@ -660,8 +682,15 @@ namespace LaunchDarkly
 		[Export ("ldConfig", ArgumentSemantic.Strong)]
 		LDConfig LdConfig { get; }
 
-		// +(LDClient *)sharedInstance;
-		[Static]
+        [Wrap ("WeakDelegate")]
+        ClientDelegate Delegate { get; set; }
+
+        // @property (nonatomic, weak) id<ClientDelegate> delegate;
+        [NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+        NSObject WeakDelegate { get; set; }
+
+        // +(LDClient *)sharedInstance;
+        [Static]
 		[Export ("sharedInstance")]
 		LDClient SharedInstance { get; }
 
