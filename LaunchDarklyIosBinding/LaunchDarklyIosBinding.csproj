@@ -11,7 +11,7 @@
     <AssemblyName>LaunchDarklyIosBinding</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackOnBuild>true</PackOnBuild>
-    <PackageId>Molnar.LaunchDarkly.Ios</PackageId>
+    <PackageId>LaunchDarklyIosBinding.Ios</PackageId>
     <PackageVersion>2.13.9.1</PackageVersion>
     <Authors>Robert Molnar</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
