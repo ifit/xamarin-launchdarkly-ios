@@ -11,5 +11,5 @@ msbuild $IFIT_PROJECT_NAME/$IFIT_PROJECT_NAME.csproj /p:Configuration=Release /t
 
 if [ "$1" = "--deploy" ]
 then
-  nuget push $IFIT_PROJECT_NAME/bin/Release/$IFIT_PROJECT_NAME.*.nupkg $IFIT_MYGET_KEY -Source $IFIT_MYGET_SOURCE
+  nuget push $IFIT_PROJECT_NAME/bin/Release/iFit.*.nupkg $IFIT_MYGET_KEY -Source $IFIT_MYGET_SOURCE
 fi
