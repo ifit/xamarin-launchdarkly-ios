@@ -1,9 +1,341 @@
 using System;
+using CoreFoundation;
 using Foundation;
 using ObjCRuntime;
 
+
 namespace LaunchDarkly
 {
+	[Static]
+	partial interface Constants
+	{
+		// extern NSString *const _Nonnull kClientVersion;
+		[Field ("kClientVersion", "__Internal")]
+		NSString kClientVersion { get; }
+
+		// extern NSString *const _Nonnull kLDPrimaryEnvironmentName;
+		[Field ("kLDPrimaryEnvironmentName", "__Internal")]
+		NSString kLDPrimaryEnvironmentName { get; }
+
+		// extern NSString *const _Nonnull kBaseUrl;
+		[Field ("kBaseUrl", "__Internal")]
+		NSString kBaseUrl { get; }
+
+		// extern NSString *const _Nonnull kEventsUrl;
+		[Field ("kEventsUrl", "__Internal")]
+		NSString kEventsUrl { get; }
+
+		// extern NSString *const _Nonnull kStreamUrl;
+		[Field ("kStreamUrl", "__Internal")]
+		NSString kStreamUrl { get; }
+
+		// extern NSString *const _Nonnull kNoMobileKeyExceptionName;
+		[Field ("kNoMobileKeyExceptionName", "__Internal")]
+		NSString kNoMobileKeyExceptionName { get; }
+
+		// extern NSString *const _Nonnull kNoMobileKeyExceptionReason;
+		[Field ("kNoMobileKeyExceptionReason", "__Internal")]
+		NSString kNoMobileKeyExceptionReason { get; }
+
+		// extern NSString *const _Nonnull kNilConfigExceptionName;
+		[Field ("kNilConfigExceptionName", "__Internal")]
+		NSString kNilConfigExceptionName { get; }
+
+		// extern NSString *const _Nonnull kNilConfigExceptionReason;
+		[Field ("kNilConfigExceptionReason", "__Internal")]
+		NSString kNilConfigExceptionReason { get; }
+
+		// extern NSString *const _Nonnull kClientNotStartedExceptionName;
+		[Field ("kClientNotStartedExceptionName", "__Internal")]
+		NSString kClientNotStartedExceptionName { get; }
+
+		// extern NSString *const _Nonnull kClientNotStartedExceptionReason;
+		[Field ("kClientNotStartedExceptionReason", "__Internal")]
+		NSString kClientNotStartedExceptionReason { get; }
+
+		// extern NSString *const _Nonnull kClientAlreadyStartedExceptionName;
+		[Field ("kClientAlreadyStartedExceptionName", "__Internal")]
+		NSString kClientAlreadyStartedExceptionName { get; }
+
+		// extern NSString *const _Nonnull kClientAlreadyStartedExceptionReason;
+		[Field ("kClientAlreadyStartedExceptionReason", "__Internal")]
+		NSString kClientAlreadyStartedExceptionReason { get; }
+
+		// extern NSString *const _Nonnull kIphone;
+		[Field ("kIphone", "__Internal")]
+		NSString kIphone { get; }
+
+		// extern NSString *const _Nonnull kIpad;
+		[Field ("kIpad", "__Internal")]
+		NSString kIpad { get; }
+
+		// extern NSString *const _Nonnull kAppleWatch;
+		[Field ("kAppleWatch", "__Internal")]
+		NSString kAppleWatch { get; }
+
+		// extern NSString *const _Nonnull kAppleTV;
+		[Field ("kAppleTV", "__Internal")]
+		NSString kAppleTV { get; }
+
+		// extern NSString *const _Nonnull kMacOS;
+		[Field ("kMacOS", "__Internal")]
+		NSString kMacOS { get; }
+
+		// extern NSString *const _Nonnull kUserDictionaryStorageKey;
+		[Field ("kUserDictionaryStorageKey", "__Internal")]
+		NSString kUserDictionaryStorageKey { get; }
+
+		// extern NSString *const _Nonnull kDeviceIdentifierKey;
+		[Field ("kDeviceIdentifierKey", "__Internal")]
+		NSString kDeviceIdentifierKey { get; }
+
+		// extern NSString *const _Nonnull kHeaderMobileKey;
+		[Field ("kHeaderMobileKey", "__Internal")]
+		NSString kHeaderMobileKey { get; }
+
+		// extern NSString *const _Nonnull kHTTPMethodReport;
+		[Field ("kHTTPMethodReport", "__Internal")]
+		NSString kHTTPMethodReport { get; }
+
+		// extern NSString *const _Nonnull kLDUserUpdatedNotification;
+		[Field ("kLDUserUpdatedNotification", "__Internal")]
+		NSString kLDUserUpdatedNotification { get; }
+
+		// extern NSString *const _Nonnull kLDUserNoChangeNotification;
+		[Field ("kLDUserNoChangeNotification", "__Internal")]
+		NSString kLDUserNoChangeNotification { get; }
+
+		// extern NSString *const _Nonnull kLDFeatureFlagsChangedNotification;
+		[Field ("kLDFeatureFlagsChangedNotification", "__Internal")]
+		NSString kLDFeatureFlagsChangedNotification { get; }
+
+		// extern NSString *const _Nonnull kLDServerConnectionUnavailableNotification;
+		[Field ("kLDServerConnectionUnavailableNotification", "__Internal")]
+		NSString kLDServerConnectionUnavailableNotification { get; }
+
+		// extern NSString *const _Nonnull kLDClientUnauthorizedNotification;
+		[Field ("kLDClientUnauthorizedNotification", "__Internal")]
+		NSString kLDClientUnauthorizedNotification { get; }
+
+		// extern NSString *const _Nonnull kLDFlagConfigTimerFiredNotification;
+		[Field ("kLDFlagConfigTimerFiredNotification", "__Internal")]
+		NSString kLDFlagConfigTimerFiredNotification { get; }
+
+		// extern NSString *const _Nonnull kLDEventTimerFiredNotification;
+		[Field ("kLDEventTimerFiredNotification", "__Internal")]
+		NSString kLDEventTimerFiredNotification { get; }
+
+		// extern NSString *const _Nonnull kLDBackgroundFetchInitiated;
+		[Field ("kLDBackgroundFetchInitiated", "__Internal")]
+		NSString kLDBackgroundFetchInitiated { get; }
+
+		// extern NSString *const _Nonnull kLDNotificationUserInfoKeyMobileKey;
+		[Field ("kLDNotificationUserInfoKeyMobileKey", "__Internal")]
+		NSString kLDNotificationUserInfoKeyMobileKey { get; }
+
+		// extern NSString *const _Nonnull kLDNotificationUserInfoKeyFlagKeys;
+		[Field ("kLDNotificationUserInfoKeyFlagKeys", "__Internal")]
+		NSString kLDNotificationUserInfoKeyFlagKeys { get; }
+
+		// extern const int kCapacity;
+		[Field ("kCapacity", "__Internal")]
+		int kCapacity { get; }
+
+		// extern const int kConnectionTimeout;
+		[Field ("kConnectionTimeout", "__Internal")]
+		int kConnectionTimeout { get; }
+
+		// extern const int kDefaultFlushInterval;
+		[Field ("kDefaultFlushInterval", "__Internal")]
+		int kDefaultFlushInterval { get; }
+
+		// extern const int kMinimumFlushInterval;
+		[Field ("kMinimumFlushInterval", "__Internal")]
+		int kMinimumFlushInterval { get; }
+
+		// extern const int kDefaultPollingInterval;
+		[Field ("kDefaultPollingInterval", "__Internal")]
+		int kDefaultPollingInterval { get; }
+
+		// extern const int kMinimumPollingInterval;
+		[Field ("kMinimumPollingInterval", "__Internal")]
+		int kMinimumPollingInterval { get; }
+
+		// extern const int kDefaultBackgroundFetchInterval;
+		[Field ("kDefaultBackgroundFetchInterval", "__Internal")]
+		int kDefaultBackgroundFetchInterval { get; }
+
+		// extern const int kMinimumBackgroundFetchInterval;
+		[Field ("kMinimumBackgroundFetchInterval", "__Internal")]
+		int kMinimumBackgroundFetchInterval { get; }
+
+		// extern const int kMillisInSecs;
+		[Field ("kMillisInSecs", "__Internal")]
+		int kMillisInSecs { get; }
+
+		// extern const NSInteger kHTTPStatusCodeOk;
+		[Field ("kHTTPStatusCodeOk", "__Internal")]
+		nint kHTTPStatusCodeOk { get; }
+
+		// extern const NSInteger kHTTPStatusCodeNotModified;
+		[Field ("kHTTPStatusCodeNotModified", "__Internal")]
+		nint kHTTPStatusCodeNotModified { get; }
+
+		// extern const NSInteger kHTTPStatusCodeBadRequest;
+		[Field ("kHTTPStatusCodeBadRequest", "__Internal")]
+		nint kHTTPStatusCodeBadRequest { get; }
+
+		// extern const NSInteger kHTTPStatusCodeUnauthorized;
+		[Field ("kHTTPStatusCodeUnauthorized", "__Internal")]
+		nint kHTTPStatusCodeUnauthorized { get; }
+
+		// extern const NSInteger kHTTPStatusCodeMethodNotAllowed;
+		[Field ("kHTTPStatusCodeMethodNotAllowed", "__Internal")]
+		nint kHTTPStatusCodeMethodNotAllowed { get; }
+
+		// extern const NSInteger kHTTPStatusCodeNotImplemented;
+		[Field ("kHTTPStatusCodeNotImplemented", "__Internal")]
+		nint kHTTPStatusCodeNotImplemented { get; }
+
+		// extern const NSInteger kErrorCodeUnauthorized;
+		[Field ("kErrorCodeUnauthorized", "__Internal")]
+		nint kErrorCodeUnauthorized { get; }
+
+		// extern const NSUInteger kNSURLCacheMemoryCapacity;
+		[Field ("kNSURLCacheMemoryCapacity", "__Internal")]
+		nuint kNSURLCacheMemoryCapacity { get; }
+
+		// extern const NSUInteger kNSURLCacheDiskCapacity;
+		[Field ("kNSURLCacheDiskCapacity", "__Internal")]
+		nuint kNSURLCacheDiskCapacity { get; }
+
+		// extern const NSTimeInterval kMaxThrottlingDelayInterval;
+		[Field ("kMaxThrottlingDelayInterval", "__Internal")]
+		double kMaxThrottlingDelayInterval { get; }
+	}
+
+	//[Static]
+	//[Verify (ConstantsInterfaceAssociation)]
+	partial interface Constants
+	{
+		// extern NSString *const _Nonnull LDEventSourceErrorDomain;
+		[Field ("LDEventSourceErrorDomain", "__Internal")]
+		NSString LDEventSourceErrorDomain { get; }
+	}
+
+	// @interface LDEvent : NSObject <NSCopying>
+	[BaseType (typeof(NSObject))]
+	interface LDEvent : INSCopying
+	{
+		// @property (nonatomic, strong) id _Nullable id;
+		[NullAllowed, Export ("id", ArgumentSemantic.Strong)]
+		NSObject Id { get; set; }
+
+		// @property (nonatomic, strong) NSString * _Nullable event;
+		[NullAllowed, Export ("event", ArgumentSemantic.Strong)]
+		string Event { get; set; }
+
+		// @property (nonatomic, strong) NSString * _Nullable data;
+		[NullAllowed, Export ("data", ArgumentSemantic.Strong)]
+		string Data { get; set; }
+
+		// @property (assign, nonatomic) LDEventState readyState;
+		[Export ("readyState", ArgumentSemantic.Assign)]
+		LDEventState ReadyState { get; set; }
+
+		// @property (nonatomic, strong) NSError * _Nullable error;
+		[NullAllowed, Export ("error", ArgumentSemantic.Strong)]
+		NSError Error { get; set; }
+
+		// -(id _Nonnull)copyWithZone:(NSZone * _Nullable)zone;
+		// [Export ("copyWithZone:")]
+		// unsafe NSObject CopyWithZone ([NullAllowed] NSZone* zone);
+	}
+
+	// typedef void (^LDEventSourceEventHandler)(LDEvent * _Nullable);
+	delegate void LDEventSourceEventHandler ([NullAllowed] LDEvent arg0);
+
+	// @interface LDEventSource : NSObject
+	[BaseType (typeof(NSObject))]
+	interface LDEventSource
+	{
+		// +(instancetype _Nonnull)eventSourceWithURL:(NSURL * _Nonnull)URL httpHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)headers;
+		[Static]
+		[Export ("eventSourceWithURL:httpHeaders:")]
+		LDEventSource EventSourceWithURL (NSUrl URL, [NullAllowed] NSDictionary<NSString, NSString> headers);
+
+		// +(instancetype _Nonnull)eventSourceWithURL:(NSURL * _Nonnull)URL httpHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)headers connectMethod:(NSString * _Nullable)connectMethod connectBody:(NSData * _Nullable)connectBody;
+		[Static]
+		[Export ("eventSourceWithURL:httpHeaders:connectMethod:connectBody:")]
+		LDEventSource EventSourceWithURL (NSUrl URL, [NullAllowed] NSDictionary<NSString, NSString> headers, [NullAllowed] string connectMethod, [NullAllowed] NSData connectBody);
+
+		// +(instancetype _Nonnull)eventSourceWithURL:(NSURL * _Nonnull)URL httpHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)headers timeoutInterval:(NSTimeInterval)timeoutInterval connectMethod:(NSString * _Nullable)connectMethod connectBody:(NSData * _Nullable)connectBody;
+		[Static]
+		[Export ("eventSourceWithURL:httpHeaders:timeoutInterval:connectMethod:connectBody:")]
+		LDEventSource EventSourceWithURL (NSUrl URL, [NullAllowed] NSDictionary<NSString, NSString> headers, double timeoutInterval, [NullAllowed] string connectMethod, [NullAllowed] NSData connectBody);
+
+		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)URL httpHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)headers;
+		[Export ("initWithURL:httpHeaders:")]
+		IntPtr Constructor (NSUrl URL, [NullAllowed] NSDictionary<NSString, NSString> headers);
+
+		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)URL httpHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)headers connectMethod:(NSString * _Nullable)connectMethod connectBody:(NSData * _Nullable)connectBody;
+		[Export ("initWithURL:httpHeaders:connectMethod:connectBody:")]
+		IntPtr Constructor (NSUrl URL, [NullAllowed] NSDictionary<NSString, NSString> headers, [NullAllowed] string connectMethod, [NullAllowed] NSData connectBody);
+
+		// -(instancetype _Nonnull)initWithURL:(NSURL * _Nonnull)URL httpHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)headers timeoutInterval:(NSTimeInterval)timeoutInterval connectMethod:(NSString * _Nullable)connectMethod connectBody:(NSData * _Nullable)connectBody;
+		[Export ("initWithURL:httpHeaders:timeoutInterval:connectMethod:connectBody:")]
+		IntPtr Constructor (NSUrl URL, [NullAllowed] NSDictionary<NSString, NSString> headers, double timeoutInterval, [NullAllowed] string connectMethod, [NullAllowed] NSData connectBody);
+
+		// -(void)onMessage:(LDEventSourceEventHandler _Nonnull)handler;
+		[Export ("onMessage:")]
+		void OnMessage (LDEventSourceEventHandler handler);
+
+		// -(void)onError:(LDEventSourceEventHandler _Nonnull)handler;
+		[Export ("onError:")]
+		void OnError (LDEventSourceEventHandler handler);
+
+		// -(void)onOpen:(LDEventSourceEventHandler _Nonnull)handler;
+		[Export ("onOpen:")]
+		void OnOpen (LDEventSourceEventHandler handler);
+
+		// -(void)onReadyStateChanged:(LDEventSourceEventHandler _Nonnull)handler;
+		[Export ("onReadyStateChanged:")]
+		void OnReadyStateChanged (LDEventSourceEventHandler handler);
+
+		// -(void)addEventListener:(NSString * _Nonnull)eventName handler:(LDEventSourceEventHandler _Nonnull)handler;
+		[Export ("addEventListener:handler:")]
+		void AddEventListener (string eventName, LDEventSourceEventHandler handler);
+
+		// -(void)open;
+		[Export ("open")]
+		void Open ();
+
+		// -(void)close;
+		[Export ("close")]
+		void Close ();
+	}
+
+	//[Static]
+	//[Verify (ConstantsInterfaceAssociation)]
+	partial interface Constants
+	{
+		// extern NSString *const _Nonnull MessageEvent;
+		[Field ("MessageEvent", "__Internal")]
+		NSString MessageEvent { get; }
+
+		// extern NSString *const _Nonnull ErrorEvent;
+		[Field ("ErrorEvent", "__Internal")]
+		NSString ErrorEvent { get; }
+
+		// extern NSString *const _Nonnull OpenEvent;
+		[Field ("OpenEvent", "__Internal")]
+		NSString OpenEvent { get; }
+
+		// extern NSString *const _Nonnull ReadyStateEvent;
+		[Field ("ReadyStateEvent", "__Internal")]
+		NSString ReadyStateEvent { get; }
+	}
+
 	// @interface LDConfig : NSObject
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
@@ -12,6 +344,10 @@ namespace LaunchDarkly
 		// @property (readonly, nonatomic) NSString * _Nonnull mobileKey;
 		[Export ("mobileKey")]
 		string MobileKey { get; }
+
+		// @property (nonatomic, strong) NSDictionary<NSString *,NSString *> * _Nullable secondaryMobileKeys;
+		[NullAllowed, Export ("secondaryMobileKeys", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSString> SecondaryMobileKeys { get; set; }
 
 		// @property (copy, nonatomic) NSString * _Nullable baseUrl;
 		[NullAllowed, Export ("baseUrl")]
@@ -77,6 +413,11 @@ namespace LaunchDarkly
 		// -(BOOL)isFlagRetryStatusCode:(NSInteger)statusCode;
 		[Export ("isFlagRetryStatusCode:")]
 		bool IsFlagRetryStatusCode (nint statusCode);
+
+		// -(NSString * _Nonnull)secondaryMobileKeysDescription;
+		[Export ("secondaryMobileKeysDescription")]
+		// [Verify (MethodToProperty)]
+		string SecondaryMobileKeysDescription { get; }
 	}
 
 	// @interface LDConfigBuilder : NSObject
@@ -91,9 +432,9 @@ namespace LaunchDarkly
 		[Export ("withMobileKey:")]
 		LDConfigBuilder WithMobileKey (string mobileKey);
 
-		// -(LDConfigBuilder * _Nonnull)withBaseUrl:(NSString * _Nullable)baseUrl __attribute__((deprecated("Use `setBaseUrl:` on an LDConfig object")));
+		// -(LDConfigBuilder * _Nonnull)withBaseUrl:(NSString * _Nonnull)baseUrl __attribute__((deprecated("Use `setBaseUrl:` on an LDConfig object")));
 		[Export ("withBaseUrl:")]
-		LDConfigBuilder WithBaseUrl ([NullAllowed] string baseUrl);
+		LDConfigBuilder WithBaseUrl (string baseUrl);
 
 		// -(LDConfigBuilder * _Nonnull)withEventsUrl:(NSString * _Nullable)eventsUrl __attribute__((deprecated("Use `setEventsUrl:` on an LDConfig object")));
 		[Export ("withEventsUrl:")]
@@ -127,9 +468,482 @@ namespace LaunchDarkly
 		[Export ("withDebugEnabled:")]
 		LDConfigBuilder WithDebugEnabled (bool debugEnabled);
 
-        // -(LDConfig * _Nonnull)build;
-        [Export ("build")]
-        LDConfig Build ();
+		// -(LDConfig * _Nonnull)build;
+		[Export ("build")]
+		// [Verify (MethodToProperty)]
+		LDConfig Build ();
+	}
+
+	// @interface LDUserBuilder : NSObject
+	[BaseType (typeof(NSObject))]
+	interface LDUserBuilder
+	{
+		// @property (copy, nonatomic) NSString * _Nullable key;
+		[NullAllowed, Export ("key")]
+		string Key { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable ip;
+		[NullAllowed, Export ("ip")]
+		string Ip { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable country;
+		[NullAllowed, Export ("country")]
+		string Country { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable name;
+		[NullAllowed, Export ("name")]
+		string Name { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable firstName;
+		[NullAllowed, Export ("firstName")]
+		string FirstName { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable lastName;
+		[NullAllowed, Export ("lastName")]
+		string LastName { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable email;
+		[NullAllowed, Export ("email")]
+		string Email { get; set; }
+
+		// @property (copy, nonatomic) NSString * _Nullable avatar;
+		[NullAllowed, Export ("avatar")]
+		string Avatar { get; set; }
+
+		// @property (nonatomic, strong) NSMutableDictionary * _Nullable customDictionary;
+		[NullAllowed, Export ("customDictionary", ArgumentSemantic.Strong)]
+		NSMutableDictionary CustomDictionary { get; set; }
+
+		// @property (nonatomic) BOOL isAnonymous;
+		[Export ("isAnonymous")]
+		bool IsAnonymous { get; set; }
+
+		// @property (nonatomic, strong) NSArray<NSString *> * _Nullable privateAttributes;
+		[NullAllowed, Export ("privateAttributes", ArgumentSemantic.Strong)]
+		string[] PrivateAttributes { get; set; }
+
+		// -(void)customString:(NSString * _Nonnull)inputKey value:(NSString * _Nonnull)value;
+		[Export ("customString:value:")]
+		void CustomString (string inputKey, string value);
+
+		// -(void)customBool:(NSString * _Nonnull)inputKey value:(BOOL)value;
+		[Export ("customBool:value:")]
+		void CustomBool (string inputKey, bool value);
+
+		// -(void)customNumber:(NSString * _Nonnull)inputKey value:(NSNumber * _Nonnull)value;
+		[Export ("customNumber:value:")]
+		void CustomNumber (string inputKey, NSNumber value);
+
+		// -(void)customArray:(NSString * _Nonnull)inputKey value:(NSArray * _Nonnull)value;
+		[Export ("customArray:value:")]
+		// [Verify (StronglyTypedNSArray)]
+		void CustomArray (string inputKey, NSObject[] value);
+
+		// -(LDUserModel * _Nonnull)build;
+		[Export ("build")]
+		// [Verify (MethodToProperty)]
+		LDUserModel Build ();
+
+		// +(LDUserBuilder * _Nonnull)currentBuilder:(LDUserModel * _Nonnull)iUser;
+		[Static]
+		[Export ("currentBuilder:")]
+		LDUserBuilder CurrentBuilder (LDUserModel iUser);
+
+		// +(LDUserBuilder * _Nonnull)retrieveCurrentBuilder:(LDUserModel * _Nonnull)iUser __attribute__((deprecated("Use `currentBuilder:` instead")));
+		[Static]
+		[Export ("retrieveCurrentBuilder:")]
+		LDUserBuilder RetrieveCurrentBuilder (LDUserModel iUser);
+
+		// -(LDUserBuilder * _Nonnull)withKey:(NSString * _Nonnull)key __attribute__((deprecated("Pass value directly to `key` instead")));
+		[Export ("withKey:")]
+		LDUserBuilder WithKey (string key);
+
+		// -(LDUserBuilder * _Nonnull)withIp:(NSString * _Nullable)ip __attribute__((deprecated("Pass value directly to `ip` instead")));
+		[Export ("withIp:")]
+		LDUserBuilder WithIp ([NullAllowed] string ip);
+
+		// -(LDUserBuilder * _Nonnull)withCountry:(NSString * _Nullable)country __attribute__((deprecated("Pass value directly to `country` instead")));
+		[Export ("withCountry:")]
+		LDUserBuilder WithCountry ([NullAllowed] string country);
+
+		// -(LDUserBuilder * _Nonnull)withName:(NSString * _Nullable)name __attribute__((deprecated("Pass value directly to `name` instead")));
+		[Export ("withName:")]
+		LDUserBuilder WithName ([NullAllowed] string name);
+
+		// -(LDUserBuilder * _Nonnull)withFirstName:(NSString * _Nullable)firstName __attribute__((deprecated("Pass value directly to `firstName` instead")));
+		[Export ("withFirstName:")]
+		LDUserBuilder WithFirstName ([NullAllowed] string firstName);
+
+		// -(LDUserBuilder * _Nonnull)withLastName:(NSString * _Nullable)lastName __attribute__((deprecated("Pass value directly to `lastName` instead")));
+		[Export ("withLastName:")]
+		LDUserBuilder WithLastName ([NullAllowed] string lastName);
+
+		// -(LDUserBuilder * _Nonnull)withEmail:(NSString * _Nullable)email __attribute__((deprecated("Pass value directly to `email` instead")));
+		[Export ("withEmail:")]
+		LDUserBuilder WithEmail ([NullAllowed] string email);
+
+		// -(LDUserBuilder * _Nonnull)withAvatar:(NSString * _Nullable)avatar __attribute__((deprecated("Pass value directly to `avatar` instead")));
+		[Export ("withAvatar:")]
+		LDUserBuilder WithAvatar ([NullAllowed] string avatar);
+
+		// -(LDUserBuilder * _Nonnull)withCustomString:(NSString * _Nullable)inputKey value:(NSString * _Nullable)value __attribute__((deprecated("Use `customString:value` instead")));
+		[Export ("withCustomString:value:")]
+		LDUserBuilder WithCustomString ([NullAllowed] string inputKey, [NullAllowed] string value);
+
+		// -(LDUserBuilder * _Nonnull)withCustomBool:(NSString * _Nullable)inputKey value:(BOOL)value __attribute__((deprecated("Use `customBool:value` instead")));
+		[Export ("withCustomBool:value:")]
+		LDUserBuilder WithCustomBool ([NullAllowed] string inputKey, bool value);
+
+		// -(LDUserBuilder * _Nonnull)withCustomNumber:(NSString * _Nullable)inputKey value:(NSNumber * _Nullable)value __attribute__((deprecated("Use `customNumber:value` instead")));
+		[Export ("withCustomNumber:value:")]
+		LDUserBuilder WithCustomNumber ([NullAllowed] string inputKey, [NullAllowed] NSNumber value);
+
+		// -(LDUserBuilder * _Nonnull)withCustomArray:(NSString * _Nullable)inputKey value:(NSArray * _Nullable)value __attribute__((deprecated("Use `customArray:value` instead")));
+		[Export ("withCustomArray:value:")]
+		// [Verify (StronglyTypedNSArray)]
+		LDUserBuilder WithCustomArray ([NullAllowed] string inputKey, [NullAllowed] NSObject[] value);
+
+		// -(LDUserBuilder * _Nonnull)withCustomDictionary:(NSMutableDictionary * _Nullable)inputDictionary __attribute__((deprecated("Pass value directly to `customDictionary` instead")));
+		[Export ("withCustomDictionary:")]
+		LDUserBuilder WithCustomDictionary ([NullAllowed] NSMutableDictionary inputDictionary);
+
+		// -(LDUserBuilder * _Nonnull)withAnonymous:(BOOL)anonymous __attribute__((deprecated("Pass value directly to `isAnonymous` instead")));
+		[Export ("withAnonymous:")]
+		LDUserBuilder WithAnonymous (bool anonymous);
+	}
+
+	// @protocol LDClientInterface <NSObject>
+	/*
+  Check whether adding [Model] to this declaration is appropriate.
+  [Model] is used to generate a C# class that implements this protocol,
+  and might be useful for protocols that consumers are supposed to implement,
+  since consumers can subclass the generated class instead of implementing
+  the generated interface. If consumers are not supposed to implement this
+  protocol, then [Model] is redundant and will generate code that will never
+  be used.
+*/[Protocol]
+	[BaseType (typeof(NSObject))]
+	interface LDClientInterface
+	{
+		// @required @property (readonly, copy, nonatomic) NSString * _Nonnull environmentName;
+		[Abstract]
+		[Export ("environmentName")]
+		string EnvironmentName { get; }
+
+		[Wrap ("WeakDelegate")]
+		[NullAllowed]
+		ClientDelegate Delegate { get; set; }
+
+		// @required @property (nonatomic, weak) id<ClientDelegate> _Nullable delegate;
+		[Abstract]
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		NSObject WeakDelegate { get; set; }
+
+		// @required @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nullable allFlags;
+		[Abstract]
+		[NullAllowed, Export ("allFlags", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> AllFlags { get; }
+
+		// @required -(BOOL)boolVariation:(NSString * _Nonnull)featureKey fallback:(BOOL)fallback;
+		[Abstract]
+		[Export ("boolVariation:fallback:")]
+		bool BoolVariation (string featureKey, bool fallback);
+
+		// @required -(NSNumber * _Nullable)numberVariation:(NSString * _Nonnull)featureKey fallback:(NSNumber * _Nullable)fallback;
+		[Abstract]
+		[Export ("numberVariation:fallback:")]
+		[return: NullAllowed]
+		NSNumber NumberVariation (string featureKey, [NullAllowed] NSNumber fallback);
+
+		// @required -(double)doubleVariation:(NSString * _Nonnull)featureKey fallback:(double)fallback;
+		[Abstract]
+		[Export ("doubleVariation:fallback:")]
+		double DoubleVariation (string featureKey, double fallback);
+
+		// @required -(NSString * _Nullable)stringVariation:(NSString * _Nonnull)featureKey fallback:(NSString * _Nullable)fallback;
+		[Abstract]
+		[Export ("stringVariation:fallback:")]
+		[return: NullAllowed]
+		string StringVariation (string featureKey, [NullAllowed] string fallback);
+
+		// @required -(NSArray * _Nullable)arrayVariation:(NSString * _Nonnull)featureKey fallback:(NSArray * _Nullable)fallback;
+		[Abstract]
+		[Export ("arrayVariation:fallback:")]
+		// [Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
+		[return: NullAllowed]
+		NSObject[] ArrayVariation (string featureKey, [NullAllowed] NSObject[] fallback);
+
+		// @required -(NSDictionary * _Nullable)dictionaryVariation:(NSString * _Nonnull)featureKey fallback:(NSDictionary * _Nullable)fallback;
+		[Abstract]
+		[Export ("dictionaryVariation:fallback:")]
+		[return: NullAllowed]
+		NSDictionary DictionaryVariation (string featureKey, [NullAllowed] NSDictionary fallback);
+
+		// @required -(BOOL)track:(NSString * _Nonnull)eventName data:(NSDictionary * _Nullable)dataDictionary;
+		[Abstract]
+		[Export ("track:data:")]
+		bool Track (string eventName, [NullAllowed] NSDictionary dataDictionary);
+	}
+
+	// @protocol ClientDelegate <NSObject>
+	[Protocol, Model (AutoGeneratedName = true)]
+	[BaseType (typeof(NSObject))]
+	interface ClientDelegate
+	{
+		// @optional -(void)userDidUpdate;
+		[Export ("userDidUpdate")]
+		void UserDidUpdate ();
+
+		// @optional -(void)userUnchanged;
+		[Export ("userUnchanged")]
+		void UserUnchanged ();
+
+		// @optional -(void)featureFlagDidUpdate:(NSString * _Nonnull)key;
+		[Export ("featureFlagDidUpdate:")]
+		void FeatureFlagDidUpdate (string key);
+
+		// @optional -(void)serverConnectionUnavailable;
+		[Export ("serverConnectionUnavailable")]
+		void ServerConnectionUnavailable ();
+	}
+
+	// @interface LDClient : NSObject <LDClientInterface>
+	[BaseType (typeof(NSObject))]
+	interface LDClient : LDClientInterface
+	{
+		// @property (readonly, assign, nonatomic) BOOL isOnline;
+		[Export ("isOnline")]
+		bool IsOnline { get; }
+
+		// @property (readonly, nonatomic, strong) LDUserModel * _Nonnull ldUser;
+		[Export ("ldUser", ArgumentSemantic.Strong)]
+		LDUserModel LdUser { get; }
+
+		// @property (readonly, nonatomic, strong) LDConfig * _Nonnull ldConfig;
+		[Export ("ldConfig", ArgumentSemantic.Strong)]
+		LDConfig LdConfig { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull environmentName;
+		[Export ("environmentName")]
+		string EnvironmentName { get; }
+
+		[Wrap ("WeakDelegate")]
+		[NullAllowed]
+		ClientDelegate Delegate { get; set; }
+
+		// @property (nonatomic, weak) id<ClientDelegate> _Nullable delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		NSObject WeakDelegate { get; set; }
+
+		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nullable allFlags;
+		[NullAllowed, Export ("allFlags", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> AllFlags { get; }
+
+		// +(LDClient * _Nonnull)sharedInstance;
+		[Static]
+		[Export ("sharedInstance")]
+		// [Verify (MethodToProperty)]
+		LDClient SharedInstance { get; }
+
+		// -(BOOL)start:(LDConfigBuilder * _Nonnull)inputConfigBuilder userBuilder:(LDUserBuilder * _Nonnull)inputUserBuilder __attribute__((deprecated("Use start:withUserBuilder: instead")));
+		[Export ("start:userBuilder:")]
+		bool Start (LDConfigBuilder inputConfigBuilder, LDUserBuilder inputUserBuilder);
+
+		// -(BOOL)start:(LDConfig * _Nonnull)inputConfig withUserBuilder:(LDUserBuilder * _Nonnull)inputUserBuilder;
+		[Export ("start:withUserBuilder:")]
+		bool Start (LDConfig inputConfig, LDUserBuilder inputUserBuilder);
+
+		// -(void)setOnline:(BOOL)goOnline;
+		[Export ("setOnline:")]
+		void SetOnline (bool goOnline);
+
+		// -(void)setOnline:(BOOL)goOnline completion:(void (^ _Nullable)(void))completion;
+		[Export ("setOnline:completion:")]
+		void SetOnline (bool goOnline, [NullAllowed] Action completion);
+
+		// -(BOOL)flush;
+		[Export ("flush")]
+		// [Verify (MethodToProperty)]
+		bool Flush (); 
+
+		// -(BOOL)stopClient;
+		[Export ("stopClient")]
+		// [Verify (MethodToProperty)]
+		bool StopClient ();
+
+		// -(BOOL)boolVariation:(NSString * _Nonnull)featureKey fallback:(BOOL)fallback;
+		[Export ("boolVariation:fallback:")]
+		bool BoolVariation (string featureKey, bool fallback);
+
+		// -(NSNumber * _Nullable)numberVariation:(NSString * _Nonnull)featureKey fallback:(NSNumber * _Nullable)fallback;
+		[Export ("numberVariation:fallback:")]
+		[return: NullAllowed]
+		NSNumber NumberVariation (string featureKey, [NullAllowed] NSNumber fallback);
+
+		// -(double)doubleVariation:(NSString * _Nonnull)featureKey fallback:(double)fallback;
+		[Export ("doubleVariation:fallback:")]
+		double DoubleVariation (string featureKey, double fallback);
+
+		// -(NSString * _Nullable)stringVariation:(NSString * _Nonnull)featureKey fallback:(NSString * _Nullable)fallback;
+		[Export ("stringVariation:fallback:")]
+		[return: NullAllowed]
+		string StringVariation (string featureKey, [NullAllowed] string fallback);
+
+		// -(NSArray * _Nullable)arrayVariation:(NSString * _Nonnull)featureKey fallback:(NSArray * _Nullable)fallback;
+		[Export ("arrayVariation:fallback:")]
+		// [Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
+		[return: NullAllowed]
+		NSObject[] ArrayVariation (string featureKey, [NullAllowed] NSObject[] fallback);
+
+		// -(NSDictionary * _Nullable)dictionaryVariation:(NSString * _Nonnull)featureKey fallback:(NSDictionary * _Nullable)fallback;
+		[Export ("dictionaryVariation:fallback:")]
+		[return: NullAllowed]
+		NSDictionary DictionaryVariation (string featureKey, [NullAllowed] NSDictionary fallback);
+
+		// -(BOOL)track:(NSString * _Nonnull)eventName data:(NSDictionary * _Nullable)dataDictionary;
+		[Export ("track:data:")]
+		bool Track (string eventName, [NullAllowed] NSDictionary dataDictionary);
+
+		// -(BOOL)updateUser:(LDUserBuilder * _Nonnull)builder;
+		[Export ("updateUser:")]
+		bool UpdateUser (LDUserBuilder builder);
+
+		// -(LDUserBuilder * _Nonnull)currentUserBuilder;
+		[Export ("currentUserBuilder")]
+		// [Verify (MethodToProperty)]
+		LDUserBuilder CurrentUserBuilder { get; }
+
+		// +(id<LDClientInterface> _Nullable)environmentForMobileKeyNamed:(NSString * _Nonnull)name;
+		[Static]
+		[Export ("environmentForMobileKeyNamed:")]
+		[return: NullAllowed]
+		LDClientInterface EnvironmentForMobileKeyNamed (string name);
+	}
+
+	// @interface LaunchDarkly (LDConfig)
+	[Category]
+	[BaseType (typeof(LDConfig))]
+	interface LDConfig_LaunchDarkly
+	{
+		// @property (readonly, nonatomic, strong) NSArray<NSString *> * _Nonnull mobileKeys;
+		[Static, Export ("mobileKeys", ArgumentSemantic.Strong)]
+		string[] MobileKeys { get; }
+	}
+
+	// @interface LDDataManager : NSObject
+	[BaseType (typeof(NSObject))]
+	interface LDDataManager
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull mobileKey;
+		[Export ("mobileKey")]
+		string MobileKey { get; }
+
+		// @property (readonly, nonatomic, strong) LDConfig * _Nonnull config;
+		[Export ("config", ArgumentSemantic.Strong)]
+		LDConfig Config { get; }
+
+		// @property (nonatomic, strong) NSDate * _Nullable lastEventResponseDate;
+		[NullAllowed, Export ("lastEventResponseDate", ArgumentSemantic.Strong)]
+		NSDate LastEventResponseDate { get; set; }
+
+		// +(instancetype _Nullable)dataManagerWithMobileKey:(NSString * _Nonnull)mobileKey config:(LDConfig * _Nonnull)config;
+		[Static]
+		[Export ("dataManagerWithMobileKey:config:")]
+		[return: NullAllowed]
+		LDDataManager DataManagerWithMobileKey (string mobileKey, LDConfig config);
+
+		// -(instancetype _Nullable)initWithMobileKey:(NSString * _Nonnull)mobileKey config:(LDConfig * _Nonnull)config;
+		[Export ("initWithMobileKey:config:")]
+		IntPtr Constructor (string mobileKey, LDConfig config);
+
+		// +(void)convertToEnvironmentBasedCacheForUser:(LDUserModel * _Nonnull)user config:(LDConfig * _Nonnull)config;
+		[Static]
+		[Export ("convertToEnvironmentBasedCacheForUser:config:")]
+		void ConvertToEnvironmentBasedCacheForUser (LDUserModel user, LDConfig config);
+
+		// -(void)saveUser:(LDUserModel * _Nonnull)user;
+		[Export ("saveUser:")]
+		void SaveUser (LDUserModel user);
+
+		// -(LDUserModel * _Nullable)findUserWithKey:(NSString * _Nonnull)key;
+		[Export ("findUserWithKey:")]
+		[return: NullAllowed]
+		LDUserModel FindUserWithKey (string key);
+
+		// -(LDFlagConfigModel * _Nullable)retrieveFlagConfigForUser:(LDUserModel * _Nonnull)user;
+		[Export ("retrieveFlagConfigForUser:")]
+		[return: NullAllowed]
+		LDFlagConfigModel RetrieveFlagConfigForUser (LDUserModel user);
+
+		// -(void)allEventDictionaries:(void (^ _Nonnull)(NSArray * _Nullable))completion;
+		[Export ("allEventDictionaries:")]
+		void AllEventDictionaries (Action<NSArray> completion);
+
+		// -(void)recordFlagEvaluationEventsWithFlagKey:(NSString * _Nonnull)flagKey reportedFlagValue:(id _Nonnull)reportedFlagValue flagConfigValue:(LDFlagConfigValue * _Nullable)flagConfigValue defaultFlagValue:(id _Nonnull)defaultFlagValue user:(LDUserModel * _Nonnull)user;
+		[Export ("recordFlagEvaluationEventsWithFlagKey:reportedFlagValue:flagConfigValue:defaultFlagValue:user:")]
+		void RecordFlagEvaluationEventsWithFlagKey (string flagKey, NSObject reportedFlagValue, [NullAllowed] LDFlagConfigValue flagConfigValue, NSObject defaultFlagValue, LDUserModel user);
+
+		// -(void)recordFeatureEventWithFlagKey:(NSString * _Nonnull)flagKey reportedFlagValue:(id _Nonnull)reportedFlagValue flagConfigValue:(LDFlagConfigValue * _Nullable)flagConfigValue defaultFlagValue:(id _Nonnull)defaultFlagValue user:(LDUserModel * _Nonnull)user;
+		[Export ("recordFeatureEventWithFlagKey:reportedFlagValue:flagConfigValue:defaultFlagValue:user:")]
+		void RecordFeatureEventWithFlagKey (string flagKey, NSObject reportedFlagValue, [NullAllowed] LDFlagConfigValue flagConfigValue, NSObject defaultFlagValue, LDUserModel user);
+
+		// -(void)recordCustomEventWithKey:(NSString * _Nonnull)eventKey customData:(NSDictionary * _Nullable)customData user:(LDUserModel * _Nonnull)user;
+		[Export ("recordCustomEventWithKey:customData:user:")]
+		void RecordCustomEventWithKey (string eventKey, [NullAllowed] NSDictionary customData, LDUserModel user);
+
+		// -(void)recordIdentifyEventWithUser:(LDUserModel * _Nonnull)user;
+		[Export ("recordIdentifyEventWithUser:")]
+		void RecordIdentifyEventWithUser (LDUserModel user);
+
+		// -(void)recordSummaryEventAndResetTrackerForUser:(LDUserModel * _Nonnull)user;
+		[Export ("recordSummaryEventAndResetTrackerForUser:")]
+		void RecordSummaryEventAndResetTrackerForUser (LDUserModel user);
+
+		// -(void)recordDebugEventWithFlagKey:(NSString * _Nonnull)flagKey reportedFlagValue:(id _Nonnull)reportedFlagValue flagConfigValue:(LDFlagConfigValue * _Nullable)flagConfigValue defaultFlagValue:(id _Nonnull)defaultFlagValue user:(LDUserModel * _Nonnull)user;
+		[Export ("recordDebugEventWithFlagKey:reportedFlagValue:flagConfigValue:defaultFlagValue:user:")]
+		void RecordDebugEventWithFlagKey (string flagKey, NSObject reportedFlagValue, [NullAllowed] LDFlagConfigValue flagConfigValue, NSObject defaultFlagValue, LDUserModel user);
+
+		// -(void)deleteProcessedEvents:(NSArray * _Nullable)processedJsonArray;
+		[Export ("deleteProcessedEvents:")]
+		// [Verify (StronglyTypedNSArray)]
+		void DeleteProcessedEvents ([NullAllowed] NSObject[] processedJsonArray);
+	}
+
+	//[Static]
+	//[Verify (ConstantsInterfaceAssociation)]
+	partial interface Constants
+	{
+		// extern NSString *const _Nonnull kUserAttributeIp;
+		[Field ("kUserAttributeIp", "__Internal")]
+		NSString kUserAttributeIp { get; }
+
+		// extern NSString *const _Nonnull kUserAttributeCountry;
+		[Field ("kUserAttributeCountry", "__Internal")]
+		NSString kUserAttributeCountry { get; }
+
+		// extern NSString *const _Nonnull kUserAttributeName;
+		[Field ("kUserAttributeName", "__Internal")]
+		NSString kUserAttributeName { get; }
+
+		// extern NSString *const _Nonnull kUserAttributeFirstName;
+		[Field ("kUserAttributeFirstName", "__Internal")]
+		NSString kUserAttributeFirstName { get; }
+
+		// extern NSString *const _Nonnull kUserAttributeLastName;
+		[Field ("kUserAttributeLastName", "__Internal")]
+		NSString kUserAttributeLastName { get; }
+
+		// extern NSString *const _Nonnull kUserAttributeEmail;
+		[Field ("kUserAttributeEmail", "__Internal")]
+		NSString kUserAttributeEmail { get; }
+
+		// extern NSString *const _Nonnull kUserAttributeAvatar;
+		[Field ("kUserAttributeAvatar", "__Internal")]
+		NSString kUserAttributeAvatar { get; }
+
+		// extern NSString *const _Nonnull kUserAttributeCustom;
+		[Field ("kUserAttributeCustom", "__Internal")]
+		NSString kUserAttributeCustom { get; }
 	}
 
 	// @interface LDUserModel : NSObject <NSCoding>
@@ -215,492 +1029,81 @@ namespace LaunchDarkly
 		// +(NSArray<NSString *> * _Nonnull)allUserAttributes;
 		[Static]
 		[Export ("allUserAttributes")]
+		// [Verify (MethodToProperty)]
 		string[] AllUserAttributes { get; }
 
 		// -(void)resetTracker;
 		[Export ("resetTracker")]
 		void ResetTracker ();
+
+		// -(instancetype _Nonnull)copy;
+		[Export ("copy")]
+		LDUserModel Copy ();
 	}
 
-	// @interface LDDataManager : NSObject
+	// @interface LDEnvironment : NSObject <LDClientInterface>
 	[BaseType (typeof(NSObject))]
-	interface LDDataManager
+	interface LDEnvironment : LDClientInterface
 	{
-		// @property (nonatomic, strong) NSDate * lastEventResponseDate;
-		[Export ("lastEventResponseDate", ArgumentSemantic.Strong)]
-		NSDate LastEventResponseDate { get; set; }
+		// @property (readonly, copy, nonatomic) NSString * mobileKey;
+		[Export ("mobileKey")]
+		string MobileKey { get; }
 
-		// +(LDDataManager *)sharedManager;
+		// @property (readonly, nonatomic, strong) LDConfig * config;
+		[Export ("config", ArgumentSemantic.Strong)]
+		LDConfig Config { get; }
+
+		// @property (readonly, nonatomic, strong) LDUserModel * user;
+		[Export ("user", ArgumentSemantic.Strong)]
+		LDUserModel User { get; }
+
+		// @property (readonly, getter = isStarted, assign, nonatomic) BOOL start;
+		[Export ("start")]
+		bool IsStarted { [Bind ("isStarted")] get; }
+
+		// @property (getter = isOnline, assign, nonatomic) BOOL online;
+		[Export ("online")]
+		bool Online { [Bind ("isOnline")] get; set; }
+
+		[Wrap ("WeakDelegate")]
+		ClientDelegate Delegate { get; set; }
+
+		// @property (nonatomic, weak) id<ClientDelegate> delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		NSObject WeakDelegate { get; set; }
+
+		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * allFlags;
+		[Export ("allFlags", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> AllFlags { get; }
+
+		// @property (readonly, assign, nonatomic) BOOL isPrimary;
+		[Export ("isPrimary")]
+		bool IsPrimary { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * environmentName;
+		[Export ("environmentName")]
+		string EnvironmentName { get; }
+
+		// +(instancetype)environmentForMobileKey:(NSString *)mobileKey config:(LDConfig *)config user:(LDUserModel *)user;
 		[Static]
-		[Export ("sharedManager")]
-		LDDataManager SharedManager { get; }
-
-		// -(void)allEventDictionaries:(void (^)(NSArray *))completion;
-		[Export ("allEventDictionaries:")]
-		void AllEventDictionaries (Action<NSArray> completion);
-
-		// -(NSMutableDictionary *)retrieveUserDictionary;
-		[Export ("retrieveUserDictionary")]
-		NSMutableDictionary RetrieveUserDictionary { get; }
-
-		// -(NSMutableArray *)retrieveEventsArray;
-		[Export ("retrieveEventsArray")]
-		NSMutableArray RetrieveEventsArray { get; }
-
-		// -(LDUserModel *)findUserWithkey:(NSString *)key;
-		[Export ("findUserWithkey:")]
-		LDUserModel FindUserWithkey (string key);
-
-		// -(void)createFlagEvaluationEventsWithFlagKey:(NSString *)flagKey reportedFlagValue:(id)reportedFlagValue flagConfigValue:(LDFlagConfigValue *)flagConfigValue defaultFlagValue:(id)defaultFlagValue user:(LDUserModel *)user config:(LDConfig *)config;
-		[Export ("createFlagEvaluationEventsWithFlagKey:reportedFlagValue:flagConfigValue:defaultFlagValue:user:config:")]
-		void CreateFlagEvaluationEventsWithFlagKey (string flagKey, NSObject reportedFlagValue, LDFlagConfigValue flagConfigValue, NSObject defaultFlagValue, LDUserModel user, LDConfig config);
-
-		// -(void)createFeatureEventWithFlagKey:(NSString *)flagKey reportedFlagValue:(id)reportedFlagValue flagConfigValue:(LDFlagConfigValue *)flagConfigValue defaultFlagValue:(id)defaultFlagValue user:(LDUserModel *)user config:(LDConfig *)config;
-		[Export ("createFeatureEventWithFlagKey:reportedFlagValue:flagConfigValue:defaultFlagValue:user:config:")]
-		void CreateFeatureEventWithFlagKey (string flagKey, NSObject reportedFlagValue, LDFlagConfigValue flagConfigValue, NSObject defaultFlagValue, LDUserModel user, LDConfig config);
-
-		// -(void)createCustomEventWithKey:(NSString *)eventKey customData:(NSDictionary *)customData user:(LDUserModel *)user config:(LDConfig *)config;
-		[Export ("createCustomEventWithKey:customData:user:config:")]
-		void CreateCustomEventWithKey (string eventKey, NSDictionary customData, LDUserModel user, LDConfig config);
-
-		// -(void)createIdentifyEventWithUser:(LDUserModel *)user config:(LDConfig *)config;
-		[Export ("createIdentifyEventWithUser:config:")]
-		void CreateIdentifyEventWithUser (LDUserModel user, LDConfig config);
-
-		// -(void)createSummaryEventWithTracker:(LDFlagConfigTracker *)tracker config:(LDConfig *)config;
-		[Export ("createSummaryEventWithTracker:config:")]
-		void CreateSummaryEventWithTracker (LDFlagConfigTracker tracker, LDConfig config);
-
-		// -(void)createDebugEventWithFlagKey:(NSString *)flagKey reportedFlagValue:(id)reportedFlagValue flagConfigValue:(LDFlagConfigValue *)flagConfigValue defaultFlagValue:(id)defaultFlagValue user:(LDUserModel *)user config:(LDConfig *)config;
-		[Export ("createDebugEventWithFlagKey:reportedFlagValue:flagConfigValue:defaultFlagValue:user:config:")]
-		void CreateDebugEventWithFlagKey (string flagKey, NSObject reportedFlagValue, LDFlagConfigValue flagConfigValue, NSObject defaultFlagValue, LDUserModel user, LDConfig config);
-
-		// -(void)saveUser:(LDUserModel *)user;
-		[Export ("saveUser:")]
-		void SaveUser (LDUserModel user);
-
-		// -(void)saveUserDeprecated:(LDUserModel *)user __attribute__((deprecated("Use saveUser: instead")));
-		[Export ("saveUserDeprecated:")]
-		void SaveUserDeprecated (LDUserModel user);
-
-		// -(void)deleteProcessedEvents:(NSArray *)processedJsonArray;
-		[Export ("deleteProcessedEvents:")]
-		void DeleteProcessedEvents (NSObject[] processedJsonArray);
-
-		// -(void)flushEventsDictionary;
-		[Export ("flushEventsDictionary")]
-		void FlushEventsDictionary ();
-	}
-
-	[Static]
-	partial interface Constants
-	{
-		// extern NSString *const kClientVersion;
-		[Field ("kClientVersion", "__Internal")]
-		NSString kLD_ClientVersion { get; }
-
-		// extern NSString *const kNoMobileKeyExceptionName;
-		[Field ("kNoMobileKeyExceptionName", "__Internal")]
-		NSString kLD_kNoMobileKeyExceptionName { get; }
-
-		// extern NSString *const kNoMobileKeyExceptionReason;
-		[Field ("kNoMobileKeyExceptionReason", "__Internal")]
-		NSString kLD_kNoMobileKeyExceptionReason { get; }
-
-		// extern NSString *const kNilConfigExceptionName;
-		[Field ("kNilConfigExceptionName", "__Internal")]
-		NSString kLD_kNilConfigExceptionName { get; }
-
-		// extern NSString *const kNilConfigExceptionReason;
-		[Field ("kNilConfigExceptionReason", "__Internal")]
-		NSString kLD_kNilConfigExceptionReason { get; }
-
-		// extern NSString *const kClientNotStartedExceptionName;
-		[Field ("kClientNotStartedExceptionName", "__Internal")]
-		NSString kLD_kClientNotStartedExceptionName { get; }
-
-		// extern NSString *const kClientNotStartedExceptionReason;
-		[Field ("kClientNotStartedExceptionReason", "__Internal")]
-		NSString kLD_kClientNotStartedExceptionReason { get; }
-
-		// extern NSString *const kClientAlreadyStartedExceptionName;
-		[Field ("kClientAlreadyStartedExceptionName", "__Internal")]
-		NSString kLD_kClientAlreadyStartedExceptionName { get; }
-
-		// extern NSString *const kClientAlreadyStartedExceptionReason;
-		[Field ("kClientAlreadyStartedExceptionReason", "__Internal")]
-		NSString kLD_kClientAlreadyStartedExceptionReason { get; }
-
-		// extern NSString *const kIphone;
-		[Field ("kIphone", "__Internal")]
-		NSString kLD_kIphone { get; }
-
-		// extern NSString *const kIpad;
-		[Field ("kIpad", "__Internal")]
-		NSString kLD_kIpad { get; }
-
-		// extern NSString *const kAppleWatch;
-		[Field ("kAppleWatch", "__Internal")]
-		NSString kLD_kAppleWatch { get; }
-
-		// extern NSString *const kAppleTV;
-		[Field ("kAppleTV", "__Internal")]
-		NSString kLD_kAppleTV { get; }
-
-		// extern NSString *const kMacOS;
-		[Field ("kMacOS", "__Internal")]
-		NSString kLD_kMacOS { get; }
-
-		// extern NSString *const kUserDictionaryStorageKey;
-		[Field ("kUserDictionaryStorageKey", "__Internal")]
-		NSString kLD_kUserDictionaryStorageKey { get; }
-
-		// extern NSString *const kDeviceIdentifierKey;
-		[Field ("kDeviceIdentifierKey", "__Internal")]
-		NSString kLD_kDeviceIdentifierKey { get; }
-
-		// extern NSString *const kLDUserUpdatedNotification;
-		[Field ("kLDUserUpdatedNotification", "__Internal")]
-		NSString kLD_kLDUserUpdatedNotification { get; }
-
-		// extern NSString *const kLDUserNoChangeNotification;
-		[Field ("kLDUserNoChangeNotification", "__Internal")]
-		NSString kLD_kLDUserNoChangeNotification { get; }
-
-		// extern NSString *const kLDFlagConfigChangedNotification;
-		[Field ("kLDFlagConfigChangedNotification", "__Internal")]
-		NSString kLD_kLDFlagConfigChangedNotification { get; }
-
-		// extern NSString *const kLDServerConnectionUnavailableNotification;
-		[Field ("kLDServerConnectionUnavailableNotification", "__Internal")]
-		NSString kLD_kLDServerConnectionUnavailableNotification { get; }
-
-		// extern NSString *const kLDClientUnauthorizedNotification;
-		[Field ("kLDClientUnauthorizedNotification", "__Internal")]
-		NSString kLD_kLDClientUnauthorizedNotification { get; }
-
-		// extern NSString *const kLDBackgroundFetchInitiated;
-		[Field ("kLDBackgroundFetchInitiated", "__Internal")]
-		NSString kLD_kLDBackgroundFetchInitiated { get; }
-
-		// extern NSString *const kHTTPMethodReport;
-		[Field ("kHTTPMethodReport", "__Internal")]
-		NSString kLD_kHTTPMethodReport { get; }
-
-		// extern const int kCapacity;
-		[Field ("kCapacity", "__Internal")]
-		int kLD_kCapacity { get; }
-
-		// extern const int kConnectionTimeout;
-		[Field ("kConnectionTimeout", "__Internal")]
-		int kLD_kConnectionTimeout { get; }
-
-		// extern const int kDefaultFlushInterval;
-		[Field ("kDefaultFlushInterval", "__Internal")]
-		int kLD_kDefaultFlushInterval { get; }
-
-		// extern const int kMinimumFlushIntervalMillis;
-		[Field ("kMinimumFlushIntervalMillis", "__Internal")]
-		int kLD_kMinimumFlushIntervalMillis { get; }
-
-		// extern const int kDefaultPollingInterval;
-		[Field ("kDefaultPollingInterval", "__Internal")]
-		int kLD_kDefaultPollingInterval { get; }
-
-		// extern const int kMinimumPollingInterval;
-		[Field ("kMinimumPollingInterval", "__Internal")]
-		int kLD_kMinimumPollingInterval { get; }
-
-		// extern const int kDefaultBackgroundFetchInterval;
-		[Field ("kDefaultBackgroundFetchInterval", "__Internal")]
-		int kLD_kDefaultBackgroundFetchInterval { get; }
-
-		// extern const int kMinimumBackgroundFetchInterval;
-		[Field ("kMinimumBackgroundFetchInterval", "__Internal")]
-		int kLD_kMinimumBackgroundFetchInterval { get; }
-
-		// extern const int kMillisInSecs;
-		[Field ("kMillisInSecs", "__Internal")]
-		int kLD_kMillisInSecs { get; }
-
-		// extern const NSInteger kHTTPStatusCodeBadRequest;
-		[Field ("kHTTPStatusCodeBadRequest", "__Internal")]
-		nint kLD_kHTTPStatusCodeBadRequest { get; }
-
-		// extern const NSInteger kHTTPStatusCodeUnauthorized;
-		[Field ("kHTTPStatusCodeUnauthorized", "__Internal")]
-		nint kLD_kHTTPStatusCodeUnauthorized { get; }
-
-		// extern const NSInteger kHTTPStatusCodeMethodNotAllowed;
-		[Field ("kHTTPStatusCodeMethodNotAllowed", "__Internal")]
-		nint kLD_kHTTPStatusCodeMethodNotAllowed { get; }
-
-		// extern const NSInteger kHTTPStatusCodeNotImplemented;
-		[Field ("kHTTPStatusCodeNotImplemented", "__Internal")]
-		nint kLD_kHTTPStatusCodeNotImplemented { get; }
-
-		// extern const NSInteger kErrorCodeUnauthorized;
-		[Field ("kErrorCodeUnauthorized", "__Internal")]
-		nint kLD_kErrorCodeUnauthorized { get; }
-
-		// extern const NSTimeInterval kMaxThrottlingDelayInterval;
-		[Field ("kMaxThrottlingDelayInterval", "__Internal")]
-		double kLD_kMaxThrottlingDelayInterval { get; }
-	}
-
-	// @interface LDUserBuilder : NSObject
-	[BaseType (typeof(NSObject))]
-	interface LDUserBuilder
-	{
-		// @property (copy, nonatomic) NSString * _Nullable key;
-		[NullAllowed, Export ("key")]
-		string Key { get; set; }
-
-		// @property (copy, nonatomic) NSString * _Nullable ip;
-		[NullAllowed, Export ("ip")]
-		string Ip { get; set; }
-
-		// @property (copy, nonatomic) NSString * _Nullable country;
-		[NullAllowed, Export ("country")]
-		string Country { get; set; }
-
-		// @property (copy, nonatomic) NSString * _Nullable name;
-		[NullAllowed, Export ("name")]
-		string Name { get; set; }
-
-		// @property (copy, nonatomic) NSString * _Nullable firstName;
-		[NullAllowed, Export ("firstName")]
-		string FirstName { get; set; }
-
-		// @property (copy, nonatomic) NSString * _Nullable lastName;
-		[NullAllowed, Export ("lastName")]
-		string LastName { get; set; }
-
-		// @property (copy, nonatomic) NSString * _Nullable email;
-		[NullAllowed, Export ("email")]
-		string Email { get; set; }
-
-		// @property (copy, nonatomic) NSString * _Nullable avatar;
-		[NullAllowed, Export ("avatar")]
-		string Avatar { get; set; }
-
-		// @property (nonatomic, strong) NSMutableDictionary * _Nullable customDictionary;
-		[NullAllowed, Export ("customDictionary", ArgumentSemantic.Strong)]
-		NSMutableDictionary CustomDictionary { get; set; }
-
-		// @property (nonatomic) BOOL isAnonymous;
-		[Export ("isAnonymous")]
-		bool IsAnonymous { get; set; }
-
-		// @property (nonatomic, strong) NSArray<NSString *> * _Nullable privateAttributes;
-		[NullAllowed, Export ("privateAttributes", ArgumentSemantic.Strong)]
-		string[] PrivateAttributes { get; set; }
-
-		// -(void)customString:(NSString * _Nonnull)inputKey value:(NSString * _Nonnull)value;
-		[Export ("customString:value:")]
-		void CustomString (string inputKey, string value);
-
-		// -(void)customBool:(NSString * _Nonnull)inputKey value:(BOOL)value;
-		[Export ("customBool:value:")]
-		void CustomBool (string inputKey, bool value);
-
-		// -(void)customNumber:(NSString * _Nonnull)inputKey value:(NSNumber * _Nonnull)value;
-		[Export ("customNumber:value:")]
-		void CustomNumber (string inputKey, NSNumber value);
-
-		// -(void)customArray:(NSString * _Nonnull)inputKey value:(NSArray * _Nonnull)value;
-		[Export ("customArray:value:")]
-		void CustomArray (string inputKey, NSObject[] value);
-
-        // -(LDUserModel * _Nonnull)build;
-        [Export ("build")]
-        LDUserModel Build ();
-
-		// +(LDUserModel * _Nonnull)compareNewBuilder:(LDUserBuilder * _Nonnull)iBuilder withUser:(LDUserModel * _Nonnull)iUser;
-		[Static]
-		[Export ("compareNewBuilder:withUser:")]
-		LDUserModel CompareNewBuilder (LDUserBuilder iBuilder, LDUserModel iUser);
-
-		// +(LDUserBuilder * _Nonnull)currentBuilder:(LDUserModel * _Nonnull)iUser;
-		[Static]
-		[Export ("currentBuilder:")]
-		LDUserBuilder CurrentBuilder (LDUserModel iUser);
-
-		// +(LDUserBuilder * _Nonnull)retrieveCurrentBuilder:(LDUserModel * _Nonnull)iUser __attribute__((deprecated("Use `currentBuilder:` instead")));
-		[Static]
-		[Export ("retrieveCurrentBuilder:")]
-		LDUserBuilder RetrieveCurrentBuilder (LDUserModel iUser);
-
-		// -(LDUserBuilder * _Nonnull)withKey:(NSString * _Nonnull)key __attribute__((deprecated("Pass value directly to `key` instead")));
-		[Export ("withKey:")]
-		LDUserBuilder WithKey (string key);
-
-		// -(LDUserBuilder * _Nonnull)withIp:(NSString * _Nullable)ip __attribute__((deprecated("Pass value directly to `ip` instead")));
-		[Export ("withIp:")]
-		LDUserBuilder WithIp ([NullAllowed] string ip);
-
-		// -(LDUserBuilder * _Nonnull)withCountry:(NSString * _Nullable)country __attribute__((deprecated("Pass value directly to `country` instead")));
-		[Export ("withCountry:")]
-		LDUserBuilder WithCountry ([NullAllowed] string country);
-
-		// -(LDUserBuilder * _Nonnull)withName:(NSString * _Nullable)name __attribute__((deprecated("Pass value directly to `name` instead")));
-		[Export ("withName:")]
-		LDUserBuilder WithName ([NullAllowed] string name);
-
-		// -(LDUserBuilder * _Nonnull)withFirstName:(NSString * _Nullable)firstName __attribute__((deprecated("Pass value directly to `firstName` instead")));
-		[Export ("withFirstName:")]
-		LDUserBuilder WithFirstName ([NullAllowed] string firstName);
-
-		// -(LDUserBuilder * _Nonnull)withLastName:(NSString * _Nullable)lastName __attribute__((deprecated("Pass value directly to `lastName` instead")));
-		[Export ("withLastName:")]
-		LDUserBuilder WithLastName ([NullAllowed] string lastName);
-
-		// -(LDUserBuilder * _Nonnull)withEmail:(NSString * _Nullable)email __attribute__((deprecated("Pass value directly to `email` instead")));
-		[Export ("withEmail:")]
-		LDUserBuilder WithEmail ([NullAllowed] string email);
-
-		// -(LDUserBuilder * _Nonnull)withAvatar:(NSString * _Nullable)avatar __attribute__((deprecated("Pass value directly to `avatar` instead")));
-		[Export ("withAvatar:")]
-		LDUserBuilder WithAvatar ([NullAllowed] string avatar);
-
-		// -(LDUserBuilder * _Nonnull)withCustomString:(NSString * _Nullable)inputKey value:(NSString * _Nullable)value __attribute__((deprecated("Use `customString:value` instead")));
-		[Export ("withCustomString:value:")]
-		LDUserBuilder WithCustomString ([NullAllowed] string inputKey, [NullAllowed] string value);
-
-		// -(LDUserBuilder * _Nonnull)withCustomBool:(NSString * _Nullable)inputKey value:(BOOL)value __attribute__((deprecated("Use `customBool:value` instead")));
-		[Export ("withCustomBool:value:")]
-		LDUserBuilder WithCustomBool ([NullAllowed] string inputKey, bool value);
-
-		// -(LDUserBuilder * _Nonnull)withCustomNumber:(NSString * _Nullable)inputKey value:(NSNumber * _Nullable)value __attribute__((deprecated("Use `customNumber:value` instead")));
-		[Export ("withCustomNumber:value:")]
-		LDUserBuilder WithCustomNumber ([NullAllowed] string inputKey, [NullAllowed] NSNumber value);
-
-		// -(LDUserBuilder * _Nonnull)withCustomArray:(NSString * _Nullable)inputKey value:(NSArray * _Nullable)value __attribute__((deprecated("Use `customArray:value` instead")));
-		[Export ("withCustomArray:value:")]
-		LDUserBuilder WithCustomArray ([NullAllowed] string inputKey, [NullAllowed] NSObject[] value);
-
-		// -(LDUserBuilder * _Nonnull)withCustomDictionary:(NSMutableDictionary * _Nullable)inputDictionary __attribute__((deprecated("Pass value directly to `customDictionary` instead")));
-		[Export ("withCustomDictionary:")]
-		LDUserBuilder WithCustomDictionary ([NullAllowed] NSMutableDictionary inputDictionary);
-
-		// -(LDUserBuilder * _Nonnull)withAnonymous:(BOOL)anonymous __attribute__((deprecated("Pass value directly to `isAnonymous` instead")));
-		[Export ("withAnonymous:")]
-		LDUserBuilder WithAnonymous (bool anonymous);
-	}
-
-	// @interface LDUtil : NSObject
-	[BaseType (typeof(NSObject))]
-	interface LDUtil
-	{
-		// +(void)assertThreadIsNotMain;
-		[Static]
-		[Export ("assertThreadIsNotMain")]
-		void AssertThreadIsNotMain ();
-
-		// +(NSInteger)getSystemVersionAsAnInteger;
-		[Static]
-		[Export ("getSystemVersionAsAnInteger")]
-		nint SystemVersionAsAnInteger { get; }
-
-		// +(NSString *)getDeviceAsString;
-		[Static]
-		[Export ("getDeviceAsString")]
-		string DeviceAsString { get; }
-
-		// +(NSString *)getSystemVersionAsString;
-		[Static]
-		[Export ("getSystemVersionAsString")]
-		string SystemVersionAsString { get; }
-
-		// +(DarklyLogLevel)logLevel;
-		// +(void)setLogLevel:(DarklyLogLevel)value;
-		[Static]
-		[Export ("logLevel")]
-		DarklyLogLevel LogLevel { get; set; }
-
-		// +(NSString *)base64EncodeString:(NSString *)unencodedString;
-		[Static]
-		[Export ("base64EncodeString:")]
-		string Base64EncodeString (string unencodedString);
-
-		// +(NSString *)base64DecodeString:(NSString *)encodedString;
-		[Static]
-		[Export ("base64DecodeString:")]
-		string Base64DecodeString (string encodedString);
-
-		// +(NSString *)base64UrlEncodeString:(NSString *)unencodedString;
-		[Static]
-		[Export ("base64UrlEncodeString:")]
-		string Base64UrlEncodeString (string unencodedString);
-
-		// +(NSString *)base64UrlDecodeString:(NSString *)encodedString;
-		[Static]
-		[Export ("base64UrlDecodeString:")]
-		string Base64UrlDecodeString (string encodedString);
-
-		// +(void)throwException:(NSString *)name reason:(NSString *)reason;
-		[Static]
-		[Export ("throwException:reason:")]
-		void ThrowException (string name, string reason);
-	}
-
-    // @protocol ClientDelegate <NSObject>
-    [Protocol, Model]
-    [BaseType (typeof (NSObject))]
-    interface ClientDelegate
-    {
-        // @optional -(void)userDidUpdate;
-        [Export ("userDidUpdate")]
-        void UserDidUpdate ();
-
-        // @optional -(void)userUnchanged;
-        [Export ("userUnchanged")]
-        void UserUnchanged ();
-
-        // @optional -(void)featureFlagDidUpdate:(NSString *)key;
-        [Export ("featureFlagDidUpdate:")]
-        void FeatureFlagDidUpdate (string key);
-
-        // @optional -(void)serverConnectionUnavailable;
-        [Export ("serverConnectionUnavailable")]
-        void ServerConnectionUnavailable ();
-    }
-
-    // @interface LDClient : NSObject
-    [BaseType (typeof(NSObject))]
-	interface LDClient
-	{
-		// @property (readonly, assign, nonatomic) BOOL isOnline;
-		[Export ("isOnline")]
-		bool IsOnline { get; }
-
-		// @property (readonly, nonatomic, strong) LDUserModel * ldUser;
-		[Export ("ldUser", ArgumentSemantic.Strong)]
-		LDUserModel LdUser { get; }
-
-		// @property (readonly, nonatomic, strong) LDConfig * ldConfig;
-		[Export ("ldConfig", ArgumentSemantic.Strong)]
-		LDConfig LdConfig { get; }
-
-        [Wrap ("WeakDelegate")]
-        ClientDelegate Delegate { get; set; }
-
-        // @property (nonatomic, weak) id<ClientDelegate> delegate;
-        [NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
-        NSObject WeakDelegate { get; set; }
-
-        // +(LDClient *)sharedInstance;
-        [Static]
-		[Export ("sharedInstance")]
-		LDClient SharedInstance { get; }
-
-		// -(BOOL)start:(LDConfigBuilder *)inputConfigBuilder userBuilder:(LDUserBuilder *)inputUserBuilder __attribute__((deprecated("Use start:withUserBuilder: instead")));
-		[Export ("start:userBuilder:")]
-		bool Start (LDConfigBuilder inputConfigBuilder, LDUserBuilder inputUserBuilder);
-
-		// -(BOOL)start:(LDConfig *)inputConfig withUserBuilder:(LDUserBuilder *)inputUserBuilder;
-		[Export ("start:withUserBuilder:")]
-		bool Start (LDConfig inputConfig, LDUserBuilder inputUserBuilder);
+		[Export ("environmentForMobileKey:config:user:")]
+		LDEnvironment EnvironmentForMobileKey (string mobileKey, LDConfig config, LDUserModel user);
+
+		// -(instancetype)initForMobileKey:(NSString *)mobileKey config:(LDConfig *)config user:(LDUserModel *)user;
+		[Export ("initForMobileKey:config:user:")]
+		IntPtr Constructor (string mobileKey, LDConfig config, LDUserModel user);
+
+		// -(void)start;
+		[Export ("start")]
+		void Start ();
+
+		// -(void)stop;
+		[Export ("stop")]
+		void Stop ();
+
+		// -(void)updateUser:(LDUserModel *)newUser;
+		[Export ("updateUser:")]
+		void UpdateUser (LDUserModel newUser);
 
 		// -(BOOL)boolVariation:(NSString *)featureKey fallback:(BOOL)fallback;
 		[Export ("boolVariation:fallback:")]
@@ -720,6 +1123,7 @@ namespace LaunchDarkly
 
 		// -(NSArray *)arrayVariation:(NSString *)featureKey fallback:(NSArray *)fallback;
 		[Export ("arrayVariation:fallback:")]
+		// [Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
 		NSObject[] ArrayVariation (string featureKey, NSObject[] fallback);
 
 		// -(NSDictionary *)dictionaryVariation:(NSString *)featureKey fallback:(NSDictionary *)fallback;
@@ -730,155 +1134,168 @@ namespace LaunchDarkly
 		[Export ("track:data:")]
 		bool Track (string eventName, NSDictionary dataDictionary);
 
-		// -(BOOL)updateUser:(LDUserBuilder *)builder;
-		[Export ("updateUser:")]
-		bool UpdateUser (LDUserBuilder builder);
-
-		// -(LDUserBuilder *)currentUserBuilder;
-		[Export ("currentUserBuilder")]
-		LDUserBuilder CurrentUserBuilder { get; }
-
-		// -(void)setOnline:(BOOL)goOnline;
-		[Export ("setOnline:")]
-		void SetOnline (bool goOnline);
-
-		// -(void)setOnline:(BOOL)goOnline completion:(void (^)(void))completion;
-		[Export ("setOnline:completion:")]
-		void SetOnline (bool goOnline, Action completion);
-
-        // -(BOOL)flush;
-        [Export ("flush")]
-        bool Flush ();
-
-        // -(BOOL)stopClient;
-        [Export ("stopClient")]
-        bool StopClient ();
+		// -(BOOL)flush;
+		[Export ("flush")]
+		// [Verify (MethodToProperty)]
+		bool Flush ();
 	}
 
-	partial interface Constants
+	// @protocol RequestManagerDelegate <NSObject>
+	[Protocol, Model (AutoGeneratedName = true)]
+	[BaseType (typeof(NSObject))]
+	interface RequestManagerDelegate
 	{
-		// extern NSString *const _Nonnull kHeaderMobileKey;
-		[Field ("kHeaderMobileKey", "__Internal")]
-		NSString kLD_kHeaderMobileKey { get; }
+		// @required -(void)processedEvents:(BOOL)success jsonEventArray:(NSArray * _Nonnull)jsonEventArray responseDate:(NSDate * _Nullable)responseDate;
+		[Abstract]
+		[Export ("processedEvents:jsonEventArray:responseDate:")]
+		// [Verify (StronglyTypedNSArray)]
+		void ProcessedEvents (bool success, NSObject[] jsonEventArray, [NullAllowed] NSDate responseDate);
+
+		// @required -(void)processedConfig:(BOOL)success jsonConfigDictionary:(NSDictionary * _Nullable)jsonConfigDictionary;
+		[Abstract]
+		[Export ("processedConfig:jsonConfigDictionary:")]
+		void ProcessedConfig (bool success, [NullAllowed] NSDictionary jsonConfigDictionary);
 	}
 
 	// @interface LDRequestManager : NSObject
 	[BaseType (typeof(NSObject))]
 	interface LDRequestManager
 	{
-		// @property (copy, nonatomic) NSString * _Nonnull mobileKey;
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull mobileKey;
 		[Export ("mobileKey")]
-		string MobileKey { get; set; }
+		string MobileKey { get; }
 
-		// @property (copy, nonatomic) NSString * _Nonnull baseUrl;
-		[Export ("baseUrl")]
-		string BaseUrl { get; set; }
+		[Wrap ("WeakDelegate")]
+		[NullAllowed]
+		RequestManagerDelegate Delegate { get; set; }
 
-		// @property (copy, nonatomic) NSString * _Nonnull eventsUrl;
-		[Export ("eventsUrl")]
-		string EventsUrl { get; set; }
+		// @property (nonatomic, weak) id<RequestManagerDelegate> _Nullable delegate;
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		NSObject WeakDelegate { get; set; }
 
-		// @property (assign, nonatomic) NSTimeInterval connectionTimeout;
-		[Export ("connectionTimeout")]
-		double ConnectionTimeout { get; set; }
-
-		// +(LDRequestManager * _Nonnull)sharedInstance;
+		// +(instancetype _Nullable)requestManagerForMobileKey:(NSString * _Nonnull)mobileKey config:(LDConfig * _Nonnull)config delegate:(id<RequestManagerDelegate> _Nullable)delegate callbackQueue:(dispatch_queue_t _Nullable)callbackQueue;
 		[Static]
-		[Export ("sharedInstance")]
-		LDRequestManager SharedInstance { get; }
+		[Export ("requestManagerForMobileKey:config:delegate:callbackQueue:")]
+		[return: NullAllowed]
+		LDRequestManager RequestManagerForMobileKey (string mobileKey, LDConfig config, [NullAllowed] RequestManagerDelegate @delegate, [NullAllowed] DispatchQueue callbackQueue);
 
-		// -(void)performFeatureFlagRequest:(LDUserModel * _Nullable)user;
-		[Export ("performFeatureFlagRequest:")]
-		void PerformFeatureFlagRequest ([NullAllowed] LDUserModel user);
+		// -(instancetype _Nullable)initForMobileKey:(NSString * _Nonnull)mobileKey config:(LDConfig * _Nonnull)config delegate:(id<RequestManagerDelegate> _Nullable)delegate callbackQueue:(dispatch_queue_t _Nullable)callbackQueue;
+		[Export ("initForMobileKey:config:delegate:callbackQueue:")]
+		IntPtr Constructor (string mobileKey, LDConfig config, [NullAllowed] RequestManagerDelegate @delegate, [NullAllowed] DispatchQueue callbackQueue);
 
-		// -(void)performEventRequest:(NSArray * _Nullable)eventDictionaries;
-		[Export ("performEventRequest:")]
-		void PerformEventRequest ([NullAllowed] NSObject[] eventDictionaries);
+		// -(void)performFeatureFlagRequest:(LDUserModel * _Nullable)user isOnline:(BOOL)isOnline;
+		[Export ("performFeatureFlagRequest:isOnline:")]
+		void PerformFeatureFlagRequest ([NullAllowed] LDUserModel user, bool isOnline);
+
+		// -(void)performEventRequest:(NSArray * _Nullable)eventDictionaries isOnline:(BOOL)isOnline;
+		[Export ("performEventRequest:isOnline:")]
+		//[Verify (StronglyTypedNSArray)]
+		void PerformEventRequest ([NullAllowed] NSObject[] eventDictionaries, bool isOnline);
 	}
 
-	// @interface LDClientManager : NSObject <RequestManagerDelegate>
+	// @interface LDEnvironmentController : NSObject <RequestManagerDelegate>
 	[BaseType (typeof(NSObject))]
-	interface LDClientManager
+	interface LDEnvironmentController
 	{
 		// @property (getter = isOnline, assign, nonatomic) BOOL online;
 		[Export ("online")]
 		bool Online { [Bind ("isOnline")] get; set; }
 
-		// +(LDClientManager *)sharedInstance;
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull mobileKey;
+		[Export ("mobileKey")]
+		string MobileKey { get; }
+
+		// @property (readonly, nonatomic, strong) LDConfig * _Nonnull config;
+		[Export ("config", ArgumentSemantic.Strong)]
+		LDConfig Config { get; }
+
+		// @property (readonly, nonatomic, strong) LDUserModel * _Nonnull user;
+		[Export ("user", ArgumentSemantic.Strong)]
+		LDUserModel User { get; }
+
+		// +(instancetype _Nonnull)controllerWithMobileKey:(NSString * _Nonnull)mobileKey config:(LDConfig * _Nonnull)config user:(LDUserModel * _Nonnull)user dataManager:(LDDataManager * _Nonnull)dataManager;
 		[Static]
-		[Export ("sharedInstance")]
-		LDClientManager SharedInstance { get; }
+		[Export ("controllerWithMobileKey:config:user:dataManager:")]
+		LDEnvironmentController ControllerWithMobileKey (string mobileKey, LDConfig config, LDUserModel user, LDDataManager dataManager);
 
-		// -(void)syncWithServerForEvents;
-		[Export ("syncWithServerForEvents")]
-		void SyncWithServerForEvents ();
-
-		// -(void)syncWithServerForConfig;
-		[Export ("syncWithServerForConfig")]
-		void SyncWithServerForConfig ();
-
-		// -(void)processedEvents:(BOOL)success jsonEventArray:(NSArray *)jsonEventArray responseDate:(NSDate *)responseDate;
-		[Export ("processedEvents:jsonEventArray:responseDate:")]
-		void ProcessedEvents (bool success, NSObject[] jsonEventArray, NSDate responseDate);
-
-		// -(void)processedConfig:(BOOL)success jsonConfigDictionary:(NSDictionary *)jsonConfigDictionary;
-		[Export ("processedConfig:jsonConfigDictionary:")]
-		void ProcessedConfig (bool success, NSDictionary jsonConfigDictionary);
-
-		// -(void)startPolling;
-		[Export ("startPolling")]
-		void StartPolling ();
-
-		// -(void)stopPolling;
-		[Export ("stopPolling")]
-		void StopPolling ();
-
-		// -(void)updateUser;
-		[Export ("updateUser")]
-		void UpdateUser ();
-
-		// -(void)willEnterBackground;
-		[Export ("willEnterBackground")]
-		void WillEnterBackground ();
-
-		// -(void)willEnterForeground;
-		[Export ("willEnterForeground")]
-		void WillEnterForeground ();
+		// -(instancetype _Nonnull)initWithMobileKey:(NSString * _Nonnull)mobileKey config:(LDConfig * _Nonnull)config user:(LDUserModel * _Nonnull)user dataManager:(LDDataManager * _Nonnull)dataManager;
+		[Export ("initWithMobileKey:config:user:dataManager:")]
+		IntPtr Constructor (string mobileKey, LDConfig config, LDUserModel user, LDDataManager dataManager);
 
 		// -(void)flushEvents;
 		[Export ("flushEvents")]
 		void FlushEvents ();
 	}
 
-    // @interface ReferencedDate (NSDate)
-    [Category]
-    [BaseType (typeof (NSDate))]
-    public interface NSDate_ReferencedDate
-    {
-        // +(NSDate *)dateFromMillisSince1970:(LDMillisecond)millis;
-        [Static]
-        [Export ("dateFromMillisSince1970:")]
-        NSDate DateFromMillisSince1970 (long millis);
+	//[Static]
+	//[Verify (ConstantsInterfaceAssociation)]
+	partial interface Constants
+	{
+		// extern NSString *const kLDEventTypePing;
+		[Field ("kLDEventTypePing", "__Internal")]
+		NSString kLDEventTypePing { get; }
 
-        // -(LDMillisecond)millisSince1970;
-        [Export ("millisSince1970")]
-        long MillisSince1970 ();
+		// extern NSString *const kLDEventTypePut;
+		[Field ("kLDEventTypePut", "__Internal")]
+		NSString kLDEventTypePut { get; }
 
-        // -(BOOL)isWithinTimeInterval:(NSTimeInterval)timeInterval ofDate:(NSDate *)otherDate;
-        [Export ("isWithinTimeInterval:ofDate:")]
-        bool IsWithinTimeInterval (double timeInterval, NSDate otherDate);
+		// extern NSString *const kLDEventTypePatch;
+		[Field ("kLDEventTypePatch", "__Internal")]
+		NSString kLDEventTypePatch { get; }
 
-        // -(BOOL)isEarlierThan:(NSDate *)otherDate;
-        [Export ("isEarlierThan:")]
-        bool IsEarlierThan (NSDate otherDate);
+		// extern NSString *const kLDEventTypeDelete;
+		[Field ("kLDEventTypeDelete", "__Internal")]
+		NSString kLDEventTypeDelete { get; }
+	}
 
-        // -(BOOL)isLaterThan:(NSDate *)otherDate;
-        [Export ("isLaterThan:")]
-        bool IsLaterThan (NSDate otherDate);
-    }
+	// @interface EventTypes (LDEvent)
+	[Category]
+	[BaseType (typeof(LDEvent))]
+	interface LDEvent_EventTypes
+	{
+	}
 
-    // @interface LDEventModel : NSObject <NSCoding>
-    [BaseType (typeof(NSObject))]
+	// @interface Unauthorized (LDEvent)
+	[Category]
+	[BaseType (typeof(LDEvent))]
+	interface LDEvent_Unauthorized
+	{
+		// -(BOOL)isUnauthorizedEvent;
+		[Static, Export ("isUnauthorizedEvent")]
+		// [Verify (MethodToProperty)]
+		bool IsUnauthorizedEvent { get; }
+	}
+
+	// @interface ReferencedDate (NSDate)
+	[Category]
+	[BaseType (typeof(NSDate))]
+	interface NSDate_ReferencedDate
+	{
+		// +(NSDate *)dateFromMillisSince1970:(LDMillisecond)millis;
+		[Static]
+		[Export ("dateFromMillisSince1970:")]
+		NSDate DateFromMillisSince1970 (long millis);
+
+		// -(LDMillisecond)millisSince1970;
+		[Export ("millisSince1970")]
+		// [Verify (MethodToProperty)]
+		long MillisSince1970 ();
+
+		// -(BOOL)isWithinTimeInterval:(NSTimeInterval)timeInterval ofDate:(NSDate *)otherDate;
+		[Export ("isWithinTimeInterval:ofDate:")]
+		bool IsWithinTimeInterval (double timeInterval, NSDate otherDate);
+
+		// -(BOOL)isEarlierThan:(NSDate *)otherDate;
+		[Export ("isEarlierThan:")]
+		bool IsEarlierThan (NSDate otherDate);
+
+		// -(BOOL)isLaterThan:(NSDate *)otherDate;
+		[Export ("isLaterThan:")]
+		bool IsLaterThan (NSDate otherDate);
+	}
+
+	// @interface LDEventModel : NSObject <NSCoding>
+	[BaseType (typeof(NSObject))]
 	interface LDEventModel : INSCoding
 	{
 		// @property (nonatomic, strong) NSString * _Nullable kind;
@@ -985,210 +1402,8 @@ namespace LaunchDarkly
 
 		// -(NSString * _Nonnull)description;
 		[Export ("description")]
+		// [Verify (MethodToProperty)]
 		string Description { get; }
-	}
-
-	// @interface LDFlagConfigModel : NSObject <NSCoding>
-	[BaseType (typeof(NSObject))]
-	interface LDFlagConfigModel : INSCoding
-	{
-		// -(id _Nullable)initWithDictionary:(NSDictionary * _Nullable)dictionary;
-		[Export ("initWithDictionary:")]
-		IntPtr Constructor ([NullAllowed] NSDictionary dictionary);
-
-		// -(NSDictionary * _Nullable)dictionaryValue;
-		[NullAllowed, Export ("dictionaryValue")]
-		NSDictionary DictionaryValue { get; }
-
-		// -(NSDictionary * _Nullable)dictionaryValueIncludeNulls:(BOOL)includeNulls;
-		[Export ("dictionaryValueIncludeNulls:")]
-		[return: NullAllowed]
-		NSDictionary DictionaryValueIncludeNulls (bool includeNulls);
-
-		// -(BOOL)doesFlagConfigValueExistForFlagKey:(NSString * _Nonnull)flagKey;
-		[Export ("doesFlagConfigValueExistForFlagKey:")]
-		bool DoesFlagConfigValueExistForFlagKey (string flagKey);
-
-		// -(LDFlagConfigValue * _Nullable)flagConfigValueForFlagKey:(NSString * _Nonnull)flagKey;
-		[Export ("flagConfigValueForFlagKey:")]
-		[return: NullAllowed]
-		LDFlagConfigValue FlagConfigValueForFlagKey (string flagKey);
-
-		// -(id _Nullable)flagValueForFlagKey:(NSString * _Nonnull)flagKey;
-		[Export ("flagValueForFlagKey:")]
-		[return: NullAllowed]
-		NSObject FlagValueForFlagKey (string flagKey);
-
-		// -(NSInteger)flagModelVersionForFlagKey:(NSString * _Nonnull)flagKey;
-		[Export ("flagModelVersionForFlagKey:")]
-		nint FlagModelVersionForFlagKey (string flagKey);
-
-		// -(void)addOrReplaceFromDictionary:(NSDictionary * _Nullable)eventDictionary;
-		[Export ("addOrReplaceFromDictionary:")]
-		void AddOrReplaceFromDictionary ([NullAllowed] NSDictionary eventDictionary);
-
-		// -(void)deleteFromDictionary:(NSDictionary * _Nullable)eventDictionary;
-		[Export ("deleteFromDictionary:")]
-		void DeleteFromDictionary ([NullAllowed] NSDictionary eventDictionary);
-
-		// -(BOOL)isEqualToConfig:(LDFlagConfigModel * _Nullable)otherConfig;
-		[Export ("isEqualToConfig:")]
-		bool IsEqualToConfig ([NullAllowed] LDFlagConfigModel otherConfig);
-
-		// -(BOOL)hasFeaturesEqualToDictionary:(NSDictionary * _Nullable)otherDictionary;
-		[Export ("hasFeaturesEqualToDictionary:")]
-		bool HasFeaturesEqualToDictionary ([NullAllowed] NSDictionary otherDictionary);
-
-		// -(void)updateEventTrackingContextFromConfig:(LDFlagConfigModel * _Nullable)otherConfig;
-		[Export ("updateEventTrackingContextFromConfig:")]
-		void UpdateEventTrackingContextFromConfig ([NullAllowed] LDFlagConfigModel otherConfig);
-
-		// -(NSString * _Nonnull)description;
-		[Export ("description")]
-		string Description { get; }
-	}
-
-	partial interface Constants
-	{
-		// extern NSString *const LDEventSourceErrorDomain;
-		[Field ("LDEventSourceErrorDomain", "__Internal")]
-		NSString kLD_LDEventSourceErrorDomain { get; }
-	}
-
-	// @interface LDEvent : NSObject <NSCopying>
-	[BaseType (typeof(NSObject))]
-	interface LDEvent : INSCopying
-	{
-		// @property (nonatomic, strong) id id;
-		[Export ("id", ArgumentSemantic.Strong)]
-		NSObject Id { get; set; }
-
-		// @property (nonatomic, strong) NSString * event;
-		[Export ("event", ArgumentSemantic.Strong)]
-		string Event { get; set; }
-
-		// @property (nonatomic, strong) NSString * data;
-		[Export ("data", ArgumentSemantic.Strong)]
-		string Data { get; set; }
-
-		// @property (assign, nonatomic) LDEventState readyState;
-		[Export ("readyState", ArgumentSemantic.Assign)]
-		LDEventState ReadyState { get; set; }
-
-		// @property (nonatomic, strong) NSError * error;
-		[Export ("error", ArgumentSemantic.Strong)]
-		NSError Error { get; set; }
-	}
-
-	// typedef void (^LDEventSourceEventHandler)(LDEvent *);
-	delegate void LDEventSourceEventHandler (LDEvent arg0);
-
-	// @interface LDEventSource : NSObject
-	[BaseType (typeof(NSObject))]
-	interface LDEventSource
-	{
-		// +(instancetype)eventSourceWithURL:(NSURL *)URL httpHeaders:(NSDictionary<NSString *,NSString *> *)headers;
-		[Static]
-		[Export ("eventSourceWithURL:httpHeaders:")]
-		LDEventSource EventSourceWithURL (NSUrl URL, NSDictionary<NSString, NSString> headers);
-
-		// +(instancetype)eventSourceWithURL:(NSURL *)URL httpHeaders:(NSDictionary<NSString *,NSString *> *)headers connectMethod:(NSString *)connectMethod connectBody:(NSData *)connectBody;
-		[Static]
-		[Export ("eventSourceWithURL:httpHeaders:connectMethod:connectBody:")]
-		LDEventSource EventSourceWithURL (NSUrl URL, NSDictionary<NSString, NSString> headers, string connectMethod, NSData connectBody);
-
-		// +(instancetype)eventSourceWithURL:(NSURL *)URL httpHeaders:(NSDictionary<NSString *,NSString *> *)headers timeoutInterval:(NSTimeInterval)timeoutInterval connectMethod:(NSString *)connectMethod connectBody:(NSData *)connectBody;
-		[Static]
-		[Export ("eventSourceWithURL:httpHeaders:timeoutInterval:connectMethod:connectBody:")]
-		LDEventSource EventSourceWithURL (NSUrl URL, NSDictionary<NSString, NSString> headers, double timeoutInterval, string connectMethod, NSData connectBody);
-
-		// -(instancetype)initWithURL:(NSURL *)URL httpHeaders:(NSDictionary<NSString *,NSString *> *)headers;
-		[Export ("initWithURL:httpHeaders:")]
-		IntPtr Constructor (NSUrl URL, NSDictionary<NSString, NSString> headers);
-
-		// -(instancetype)initWithURL:(NSURL *)URL httpHeaders:(NSDictionary<NSString *,NSString *> *)headers connectMethod:(NSString *)connectMethod connectBody:(NSData *)connectBody;
-		[Export ("initWithURL:httpHeaders:connectMethod:connectBody:")]
-		IntPtr Constructor (NSUrl URL, NSDictionary<NSString, NSString> headers, string connectMethod, NSData connectBody);
-
-		// -(instancetype)initWithURL:(NSURL *)URL httpHeaders:(NSDictionary<NSString *,NSString *> *)headers timeoutInterval:(NSTimeInterval)timeoutInterval connectMethod:(NSString *)connectMethod connectBody:(NSData *)connectBody;
-		[Export ("initWithURL:httpHeaders:timeoutInterval:connectMethod:connectBody:")]
-		IntPtr Constructor (NSUrl URL, NSDictionary<NSString, NSString> headers, double timeoutInterval, string connectMethod, NSData connectBody);
-
-		// -(void)onMessage:(LDEventSourceEventHandler)handler;
-		[Export ("onMessage:")]
-		void OnMessage (LDEventSourceEventHandler handler);
-
-		// -(void)onError:(LDEventSourceEventHandler)handler;
-		[Export ("onError:")]
-		void OnError (LDEventSourceEventHandler handler);
-
-		// -(void)onOpen:(LDEventSourceEventHandler)handler;
-		[Export ("onOpen:")]
-		void OnOpen (LDEventSourceEventHandler handler);
-
-		// -(void)onReadyStateChanged:(LDEventSourceEventHandler)handler;
-		[Export ("onReadyStateChanged:")]
-		void OnReadyStateChanged (LDEventSourceEventHandler handler);
-
-		// -(void)addEventListener:(NSString *)eventName handler:(LDEventSourceEventHandler)handler;
-		[Export ("addEventListener:handler:")]
-		void AddEventListener (string eventName, LDEventSourceEventHandler handler);
-
-		// -(void)close;
-		[Export ("close")]
-		void Close ();
-	}
-
-	partial interface Constants
-	{
-		// extern NSString *const MessageEvent;
-		[Field ("MessageEvent", "__Internal")]
-		NSString kLD_MessageEvent { get; }
-
-		// extern NSString *const ErrorEvent;
-		[Field ("ErrorEvent", "__Internal")]
-		NSString kLD_ErrorEvent { get; }
-
-		// extern NSString *const OpenEvent;
-		[Field ("OpenEvent", "__Internal")]
-		NSString kLD_OpenEvent { get; }
-
-		// extern NSString *const ReadyStateEvent;
-		[Field ("ReadyStateEvent", "__Internal")]
-		NSString kLD_ReadyStateEvent { get; }
-
-		// extern NSString *const kLDEventTypePing;
-		[Field ("kLDEventTypePing", "__Internal")]
-		NSString kLD_kLDEventTypePing { get; }
-
-		// extern NSString *const kLDEventTypePut;
-		[Field ("kLDEventTypePut", "__Internal")]
-		NSString kLD_kLDEventTypePut { get; }
-
-		// extern NSString *const kLDEventTypePatch;
-		[Field ("kLDEventTypePatch", "__Internal")]
-		NSString kLD_kLDEventTypePatch { get; }
-
-		// extern NSString *const kLDEventTypeDelete;
-		[Field ("kLDEventTypeDelete", "__Internal")]
-		NSString kLD_kLDEventTypeDelete { get; }
-	}
-
-	// @interface EventTypes (LDEvent)
-	[Category]
-	[BaseType (typeof(LDEvent))]
-	interface LDEvent_EventTypes
-	{
-	}
-
-	// @interface Unauthorized (LDEvent)
-	[Category]
-	[BaseType (typeof(LDEvent))]
-	interface LDEvent_Unauthorized
-	{
-        // -(BOOL)isUnauthorizedEvent;
-        [Export ("isUnauthorizedEvent")]
-        bool IsUnauthorizedEvent ();
 	}
 
 	// @interface LDEventParser : NSObject
@@ -1235,6 +1450,7 @@ namespace LaunchDarkly
 
 		// -(BOOL)isReadyToParseEvent;
 		[Export ("isReadyToParseEvent")]
+		// [Verify (MethodToProperty)]
 		bool IsReadyToParseEvent { get; }
 
 		// -(void)reset;
@@ -1242,9 +1458,9 @@ namespace LaunchDarkly
 		void Reset ();
 	}
 
-	// @interface LDEventTrackingContext : NSObject <NSCoding>
+	// @interface LDEventTrackingContext : NSObject <NSCoding, NSCopying>
 	[BaseType (typeof(NSObject))]
-	interface LDEventTrackingContext : INSCoding
+	interface LDEventTrackingContext : INSCoding, INSCopying
 	{
 		// @property (assign, nonatomic) BOOL trackEvents;
 		[Export ("trackEvents")]
@@ -1266,20 +1482,110 @@ namespace LaunchDarkly
 
 		// -(NSDictionary * _Nonnull)dictionaryValue;
 		[Export ("dictionaryValue")]
+		// [Verify (MethodToProperty)]
 		NSDictionary DictionaryValue { get; }
 
+		// -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+		// [Export ("encodeWithCoder:")]
+		// void EncodeWithCoder (NSCoder aCoder);
+
 		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder;
-//		[Export ("initWithCoder:")]
-//		IntPtr Constructor (NSCoder aDecoder);
+		// [Export ("initWithCoder:")]
+		// IntPtr Constructor (NSCoder aDecoder);
 
 		// -(NSString * _Nonnull)description;
 		[Export ("description")]
+		// [Verify (MethodToProperty)]
+		string Description { get; }
+
+		// -(id _Nonnull)copyWithZone:(NSZone * _Nullable)zone;
+		//[Export ("copyWithZone:")]
+		//unsafe NSObject CopyWithZone ([NullAllowed] NSZone* zone);
+		
+	}
+
+	// @interface LDFlagConfigModel : NSObject <NSCoding>
+	[BaseType (typeof(NSObject))]
+	interface LDFlagConfigModel : INSCoding
+	{
+		// @property (nonatomic, strong) NSDictionary<NSString *,LDFlagConfigValue *> * _Nullable featuresJsonDictionary;
+		[NullAllowed, Export ("featuresJsonDictionary", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, LDFlagConfigValue> FeaturesJsonDictionary { get; set; }
+
+		// @property (readonly, nonatomic, strong) NSDictionary<NSString *,id> * _Nullable allFlagValues;
+		[NullAllowed, Export ("allFlagValues", ArgumentSemantic.Strong)]
+		NSDictionary<NSString, NSObject> AllFlagValues { get; }
+
+		// -(id _Nullable)initWithDictionary:(NSDictionary * _Nullable)dictionary;
+		[Export ("initWithDictionary:")]
+		IntPtr Constructor ([NullAllowed] NSDictionary dictionary);
+
+		// -(NSDictionary * _Nullable)dictionaryValue;
+		[NullAllowed, Export ("dictionaryValue")]
+		// [Verify (MethodToProperty)]
+		NSDictionary DictionaryValue { get; }
+
+		// -(NSDictionary * _Nullable)dictionaryValueIncludeNulls:(BOOL)includeNulls;
+		[Export ("dictionaryValueIncludeNulls:")]
+		[return: NullAllowed]
+		NSDictionary DictionaryValueIncludeNulls (bool includeNulls);
+
+		// -(BOOL)containsFlagKey:(NSString * _Nonnull)flagKey;
+		[Export ("containsFlagKey:")]
+		bool ContainsFlagKey (string flagKey);
+
+		// -(LDFlagConfigValue * _Nullable)flagConfigValueForFlagKey:(NSString * _Nonnull)flagKey;
+		[Export ("flagConfigValueForFlagKey:")]
+		[return: NullAllowed]
+		LDFlagConfigValue FlagConfigValueForFlagKey (string flagKey);
+
+		// -(id _Nullable)flagValueForFlagKey:(NSString * _Nonnull)flagKey;
+		[Export ("flagValueForFlagKey:")]
+		[return: NullAllowed]
+		NSObject FlagValueForFlagKey (string flagKey);
+
+		// -(NSInteger)flagModelVersionForFlagKey:(NSString * _Nonnull)flagKey;
+		[Export ("flagModelVersionForFlagKey:")]
+		nint FlagModelVersionForFlagKey (string flagKey);
+
+		// -(void)addOrReplaceFromDictionary:(NSDictionary * _Nullable)eventDictionary;
+		[Export ("addOrReplaceFromDictionary:")]
+		void AddOrReplaceFromDictionary ([NullAllowed] NSDictionary eventDictionary);
+
+		// -(void)deleteFromDictionary:(NSDictionary * _Nullable)eventDictionary;
+		[Export ("deleteFromDictionary:")]
+		void DeleteFromDictionary ([NullAllowed] NSDictionary eventDictionary);
+
+		// -(BOOL)isEqualToConfig:(LDFlagConfigModel * _Nullable)otherConfig;
+		[Export ("isEqualToConfig:")]
+		bool IsEqualToConfig ([NullAllowed] LDFlagConfigModel otherConfig);
+
+		// -(NSArray<NSString *> * _Nullable)differingFlagKeysFromConfig:(LDFlagConfigModel * _Nullable)otherConfig;
+		[Export ("differingFlagKeysFromConfig:")]
+		[return: NullAllowed]
+		string[] DifferingFlagKeysFromConfig ([NullAllowed] LDFlagConfigModel otherConfig);
+
+		// -(BOOL)hasFeaturesEqualToDictionary:(NSDictionary * _Nullable)otherDictionary;
+		[Export ("hasFeaturesEqualToDictionary:")]
+		bool HasFeaturesEqualToDictionary ([NullAllowed] NSDictionary otherDictionary);
+
+		// -(void)updateEventTrackingContextFromConfig:(LDFlagConfigModel * _Nullable)otherConfig;
+		[Export ("updateEventTrackingContextFromConfig:")]
+		void UpdateEventTrackingContextFromConfig ([NullAllowed] LDFlagConfigModel otherConfig);
+
+		// -(instancetype _Nonnull)copy;
+		[Export ("copy")]
+		LDFlagConfigModel Copy ();
+
+		// -(NSString * _Nonnull)description;
+		[Export ("description")]
+		// [Verify (MethodToProperty)]
 		string Description { get; }
 	}
 
-	// @interface LDFlagConfigTracker : NSObject
+	// @interface LDFlagConfigTracker : NSObject <NSCopying>
 	[BaseType (typeof(NSObject))]
-	interface LDFlagConfigTracker
+	interface LDFlagConfigTracker : INSCopying
 	{
 		// @property (readonly, assign, nonatomic) LDMillisecond startDateMillis;
 		[Export ("startDateMillis")]
@@ -1300,39 +1606,47 @@ namespace LaunchDarkly
 
 		// -(NSDictionary<NSString *,NSDictionary *> * _Nonnull)flagRequestSummary;
 		[Export ("flagRequestSummary")]
+		// [Verify (MethodToProperty)]
 		NSDictionary<NSString, NSDictionary> FlagRequestSummary { get; }
 
 		// -(NSString * _Nonnull)description;
 		[Export ("description")]
+		// [Verify (MethodToProperty)]
 		string Description { get; }
+
+		// -(instancetype _Nonnull)copyWithZone:(NSZone * _Nullable)zone;
+		// [Export ("copyWithZone:")]
+		// unsafe LDFlagConfigTracker CopyWithZone ([NullAllowed] NSZone* zone);
 	}
 
+	// [Static]
+	// [Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull kLDFlagConfigValueKeyValue;
 		[Field ("kLDFlagConfigValueKeyValue", "__Internal")]
-		NSString kLD_kLDFlagConfigValueKeyValue { get; }
+		NSString kLDFlagConfigValueKeyValue { get; }
 
 		// extern NSString *const _Nonnull kLDFlagConfigValueKeyVersion;
 		[Field ("kLDFlagConfigValueKeyVersion", "__Internal")]
-		NSString kLD_kLDFlagConfigValueKeyVersion { get; }
+		NSString kLDFlagConfigValueKeyVersion { get; }
 
 		// extern NSString *const _Nonnull kLDFlagConfigValueKeyFlagVersion;
 		[Field ("kLDFlagConfigValueKeyFlagVersion", "__Internal")]
-		NSString kLD_kLDFlagConfigValueKeyFlagVersion { get; }
+		NSString kLDFlagConfigValueKeyFlagVersion { get; }
 
 		// extern NSString *const _Nonnull kLDFlagConfigValueKeyVariation;
 		[Field ("kLDFlagConfigValueKeyVariation", "__Internal")]
-		NSString kLD_kLDFlagConfigValueKeyVariation { get; }
+		NSString kLDFlagConfigValueKeyVariation { get; }
 
 		// extern const NSInteger kLDFlagConfigValueItemDoesNotExist;
 		[Field ("kLDFlagConfigValueItemDoesNotExist", "__Internal")]
-		nint kLD_kLDFlagConfigValueItemDoesNotExist { get; }
+		nint kLDFlagConfigValueItemDoesNotExist { get; }
 	}
 
-	// @interface LDFlagConfigValue : NSObject
+	// @interface LDFlagConfigValue : NSObject <NSCopying>
 	[BaseType (typeof(NSObject))]
-	interface LDFlagConfigValue
+	interface LDFlagConfigValue : INSCopying
 	{
 		// @property (nonatomic, strong) id _Nullable value;
 		[NullAllowed, Export ("value", ArgumentSemantic.Strong)]
@@ -1374,6 +1688,7 @@ namespace LaunchDarkly
 
 		// -(NSDictionary * _Nonnull)dictionaryValue;
 		[Export ("dictionaryValue")]
+		// [Verify (MethodToProperty)]
 		NSDictionary DictionaryValue { get; }
 
 		// -(NSDictionary * _Nonnull)dictionaryValueUseFlagVersionForVersion:(BOOL)useFlagVersion includeEventTrackingContext:(BOOL)includeEventTrackingContext;
@@ -1394,12 +1709,17 @@ namespace LaunchDarkly
 
 		// -(NSString * _Nonnull)description;
 		[Export ("description")]
+		// [Verify (MethodToProperty)]
 		string Description { get; }
+
+		// -(instancetype _Nonnull)copyWithZone:(NSZone * _Nullable)zone;
+		// [Export ("copyWithZone:")]
+		// unsafe LDFlagConfigValue CopyWithZone ([NullAllowed] NSZone* zone);
 	}
 
-	// @interface LDFlagCounter : NSObject
+	// @interface LDFlagCounter : NSObject <NSCopying>
 	[BaseType (typeof(NSObject))]
-	interface LDFlagCounter
+	interface LDFlagCounter : INSCopying
 	{
 		// @property (readonly, nonatomic, strong) NSString * _Nonnull flagKey;
 		[Export ("flagKey", ArgumentSemantic.Strong)]
@@ -1428,16 +1748,22 @@ namespace LaunchDarkly
 
 		// -(NSDictionary * _Nonnull)dictionaryValue;
 		[Export ("dictionaryValue")]
+		// [Verify (MethodToProperty)]
 		NSDictionary DictionaryValue { get; }
 
 		// -(NSString * _Nonnull)description;
 		[Export ("description")]
+		// [Verify (MethodToProperty)]
 		string Description { get; }
+
+		// -(instancetype _Nonnull)copyWithZone:(NSZone * _Nullable)zone;
+		// [Export ("copyWithZone:")]
+		// unsafe LDFlagCounter CopyWithZone ([NullAllowed] NSZone* zone);
 	}
 
-	// @interface LDFlagValueCounter : NSObject
+	// @interface LDFlagValueCounter : NSObject <NSCopying>
 	[BaseType (typeof(NSObject))]
-	interface LDFlagValueCounter
+	interface LDFlagValueCounter : INSCopying
 	{
 		// @property (nonatomic, strong) id _Nonnull reportedFlagValue;
 		[Export ("reportedFlagValue", ArgumentSemantic.Strong)]
@@ -1466,11 +1792,82 @@ namespace LaunchDarkly
 
 		// -(NSDictionary * _Nonnull)dictionaryValue;
 		[Export ("dictionaryValue")]
+		// [Verify (MethodToProperty)]
 		NSDictionary DictionaryValue { get; }
 
 		// -(NSString * _Nonnull)description;
 		[Export ("description")]
+		// [Verify (MethodToProperty)]
 		string Description { get; }
+
+		// -(instancetype _Nonnull)copyWithZone:(NSZone * _Nullable)zone;
+		// [Export ("copyWithZone:")]
+		// unsafe LDFlagValueCounter CopyWithZone ([NullAllowed] NSZone* zone);
+	}
+
+	// @interface LDPollingManager : NSObject
+	[BaseType (typeof(NSObject))]
+	interface LDPollingManager
+	{
+		// +(LDPollingManager *)sharedInstance;
+		[Static]
+		[Export ("sharedInstance")]
+		// [Verify (MethodToProperty)]
+		LDPollingManager SharedInstance { get; }
+
+		// @property (readonly, assign, atomic) PollingState flagConfigPollingState;
+		[Export ("flagConfigPollingState", ArgumentSemantic.Assign)]
+		PollingState FlagConfigPollingState { get; }
+
+		// @property (readonly, assign, atomic) PollingState eventPollingState;
+		[Export ("eventPollingState", ArgumentSemantic.Assign)]
+		PollingState EventPollingState { get; }
+
+		// @property (readonly, nonatomic, strong) dispatch_source_t flagConfigTimer;
+		[Export ("flagConfigTimer", ArgumentSemantic.Strong)]
+		// OS_dispatch_source FlagConfigTimer { get; }
+		NSObject FlagConfigTimer { get; }
+
+		// @property (readonly, nonatomic, strong) dispatch_source_t eventTimer;
+		[Export ("eventTimer", ArgumentSemantic.Strong)]
+		 // OS_dispatch_source EventTimer { get; }
+		NSObject EventTimer { get; }
+
+		// @property (readonly, nonatomic, strong) LDConfig * config;
+		[Export ("config", ArgumentSemantic.Strong)]
+		LDConfig Config { get; }
+
+		// -(void)startFlagConfigPollingUsingConfig:(LDConfig *)config isOnline:(BOOL)isOnline;
+		[Export ("startFlagConfigPollingUsingConfig:isOnline:")]
+		void StartFlagConfigPollingUsingConfig (LDConfig config, bool isOnline);
+
+		// -(void)suspendFlagConfigPolling;
+		[Export ("suspendFlagConfigPolling")]
+		void SuspendFlagConfigPolling ();
+
+		// -(void)resumeFlagConfigPollingWhenIsOnline:(BOOL)isOnline;
+		[Export ("resumeFlagConfigPollingWhenIsOnline:")]
+		void ResumeFlagConfigPollingWhenIsOnline (bool isOnline);
+
+		// -(void)stopFlagConfigPolling;
+		[Export ("stopFlagConfigPolling")]
+		void StopFlagConfigPolling ();
+
+		// -(void)startEventPollingUsingConfig:(LDConfig *)config isOnline:(BOOL)isOnline;
+		[Export ("startEventPollingUsingConfig:isOnline:")]
+		void StartEventPollingUsingConfig (LDConfig config, bool isOnline);
+
+		// -(void)suspendEventPolling;
+		[Export ("suspendEventPolling")]
+		void SuspendEventPolling ();
+
+		// -(void)resumeEventPollingWhenIsOnline:(BOOL)isOnline;
+		[Export ("resumeEventPollingWhenIsOnline:")]
+		void ResumeEventPollingWhenIsOnline (bool isOnline);
+
+		// -(void)stopEventPolling;
+		[Export ("stopEventPolling")]
+		void StopEventPolling ();
 	}
 
 	// @interface LDThrottler : NSObject
@@ -1506,30 +1903,370 @@ namespace LaunchDarkly
 		void RunThrottled (Action completion);
 	}
 
+	// @interface LDURLCache : NSURLCache
+	[BaseType (typeof(NSUrlCache))]
+	interface LDURLCache
+	{
+		// +(NSURLCache * _Nonnull)urlCacheForConfig:(LDConfig * _Nonnull)config usingCache:(NSURLCache * _Nonnull)baseCache;
+		[Static]
+		[Export ("urlCacheForConfig:usingCache:")]
+		NSUrlCache UrlCacheForConfig (LDConfig config, NSUrlCache baseCache);
+
+		// +(BOOL)shouldUseLDURLCacheForConfig:(LDConfig * _Nonnull)config;
+		[Static]
+		[Export ("shouldUseLDURLCacheForConfig:")]
+		bool ShouldUseLDURLCacheForConfig (LDConfig config);
+
+		// -(void)storeCachedResponse:(NSCachedURLResponse * _Nonnull)cachedResponse forDataTask:(NSURLSessionDataTask * _Nonnull)dataTask;
+		[Export ("storeCachedResponse:forDataTask:")]
+		void StoreCachedResponse (NSCachedUrlResponse cachedResponse, NSUrlSessionDataTask dataTask);
+
+		// -(void)storeCachedResponse:(NSCachedURLResponse * _Nonnull)cachedResponse forRequest:(NSURLRequest * _Nonnull)request;
+		[Export ("storeCachedResponse:forRequest:")]
+		void StoreCachedResponse (NSCachedUrlResponse cachedResponse, NSUrlRequest request);
+
+		// -(void)getCachedResponseForDataTask:(NSURLSessionDataTask * _Nonnull)dataTask completionHandler:(void (^ _Nonnull)(NSCachedURLResponse * _Nonnull))completionHandler;
+		[Export ("getCachedResponseForDataTask:completionHandler:")]
+		void GetCachedResponseForDataTask (NSUrlSessionDataTask dataTask, Action<NSCachedUrlResponse> completionHandler);
+
+		// -(NSCachedURLResponse * _Nonnull)cachedResponseForRequest:(NSURLRequest * _Nonnull)request;
+		[Export ("cachedResponseForRequest:")]
+		NSCachedUrlResponse CachedResponseForRequest (NSUrlRequest request);
+	}
+
+	// @interface LDUserEnvironment : NSObject <NSCoding>
+	[BaseType (typeof(NSObject))]
+	interface LDUserEnvironment : INSCoding
+	{
+		// @property (readonly, nonatomic, strong) NSString * _Nonnull userKey;
+		[Export ("userKey", ArgumentSemantic.Strong)]
+		string UserKey { get; }
+
+		// @property (readonly, nonatomic, strong) NSDate * _Nullable lastUpdated;
+		[NullAllowed, Export ("lastUpdated", ArgumentSemantic.Strong)]
+		NSDate LastUpdated { get; }
+
+		// +(instancetype _Nullable)userEnvironmentForUserWithKey:(NSString * _Nonnull)userKey environments:(NSDictionary<NSString *,LDUserModel *> * _Nullable)environments;
+		[Static]
+		[Export ("userEnvironmentForUserWithKey:environments:")]
+		[return: NullAllowed]
+		LDUserEnvironment UserEnvironmentForUserWithKey (string userKey, [NullAllowed] NSDictionary<NSString, LDUserModel> environments);
+
+		// -(instancetype _Nullable)initForUserWithKey:(NSString * _Nonnull)userKey environments:(NSDictionary<NSString *,LDUserModel *> * _Nonnull)environments;
+		[Export ("initForUserWithKey:environments:")]
+		IntPtr Constructor (string userKey, NSDictionary<NSString, LDUserModel> environments);
+
+		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)coder;
+		// [Export ("initWithCoder:")]
+		// IntPtr Constructor (NSCoder coder);
+
+		// -(void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+		// [Export ("encodeWithCoder:")]
+		// void EncodeWithCoder (NSCoder coder);
+
+		// -(instancetype _Nullable)initWithDictionary:(NSDictionary * _Nullable)dictionary;
+		[Export ("initWithDictionary:")]
+		IntPtr Constructor ([NullAllowed] NSDictionary dictionary);
+
+		// -(NSDictionary * _Nullable)dictionaryValue;
+		[NullAllowed, Export ("dictionaryValue")]
+		// [Verify (MethodToProperty)]
+		NSDictionary DictionaryValue { get; }
+
+		// -(LDUserModel * _Nullable)userForMobileKey:(NSString * _Nonnull)mobileKey;
+		[Export ("userForMobileKey:")]
+		[return: NullAllowed]
+		LDUserModel UserForMobileKey (string mobileKey);
+
+		// -(void)setUser:(LDUserModel * _Nonnull)user mobileKey:(NSString * _Nonnull)mobileKey;
+		[Export ("setUser:mobileKey:")]
+		void SetUser (LDUserModel user, string mobileKey);
+
+		// -(void)removeUserForMobileKey:(NSString * _Nonnull)mobileKey;
+		[Export ("removeUserForMobileKey:")]
+		void RemoveUserForMobileKey (string mobileKey);
+	}
+
+	// @interface LDUtil : NSObject
+	[BaseType (typeof(NSObject))]
+	interface LDUtil
+	{
+		// +(void)assertThreadIsNotMain;
+		[Static]
+		[Export ("assertThreadIsNotMain")]
+		void AssertThreadIsNotMain ();
+
+		// +(NSInteger)getSystemVersionAsAnInteger;
+		[Static]
+		[Export ("getSystemVersionAsAnInteger")]
+		// [Verify (MethodToProperty)]
+		nint SystemVersionAsAnInteger { get; }
+
+		// +(NSString *)getDeviceAsString;
+		[Static]
+		[Export ("getDeviceAsString")]
+		// [Verify (MethodToProperty)]
+		string DeviceAsString { get; }
+
+		// +(NSString *)getSystemVersionAsString;
+		[Static]
+		[Export ("getSystemVersionAsString")]
+		// [Verify (MethodToProperty)]
+		string SystemVersionAsString { get; }
+
+		// +(DarklyLogLevel)logLevel;
+		// +(void)setLogLevel:(DarklyLogLevel)value;
+		[Static]
+		[Export ("logLevel")]
+		// [Verify (MethodToProperty)]
+		DarklyLogLevel LogLevel { get; set; }
+
+		// +(NSString *)base64EncodeString:(NSString *)unencodedString;
+		[Static]
+		[Export ("base64EncodeString:")]
+		string Base64EncodeString (string unencodedString);
+
+		// +(NSString *)base64DecodeString:(NSString *)encodedString;
+		[Static]
+		[Export ("base64DecodeString:")]
+		string Base64DecodeString (string encodedString);
+
+		// +(NSString *)base64UrlEncodeString:(NSString *)unencodedString;
+		[Static]
+		[Export ("base64UrlEncodeString:")]
+		string Base64UrlEncodeString (string unencodedString);
+
+		// +(NSString *)base64UrlDecodeString:(NSString *)encodedString;
+		[Static]
+		[Export ("base64UrlDecodeString:")]
+		string Base64UrlDecodeString (string encodedString);
+
+		// +(void)throwException:(NSString *)name reason:(NSString *)reason;
+		[Static]
+		[Export ("throwException:reason:")]
+		void ThrowException (string name, string reason);
+	}
+
+	// @interface LDEventSource (NSArray)
+	[Category]
+	[BaseType (typeof(NSArray))]
+	interface NSArray_LDEventSource
+	{
+		// -(NSUInteger)indexOfFirstEmptyLine;
+		[Static, Export ("indexOfFirstEmptyLine")]
+		// [Verify (MethodToProperty)]
+		nuint IndexOfFirstEmptyLine { get; }
+
+		// -(NSArray *)subArrayFromIndex:(NSUInteger)index;
+		[Export ("subArrayFromIndex:")]
+		// [Verify (StronglyTypedNSArray)]
+		NSObject[] SubArrayFromIndex (nuint index);
+	}
+
+	// @interface JsonHeader (NSDateFormatter)
+	[Category]
+	[BaseType (typeof(NSDateFormatter))]
+	interface NSDateFormatter_JsonHeader
+	{
+		// +(instancetype)jsonHeaderDateFormatter;
+		[Static]
+		[Export ("jsonHeaderDateFormatter")]
+		NSDateFormatter JsonHeaderDateFormatter ();
+	}
+
+	// @interface LDUserModel (NSDateFormatter)
+	[Category]
+	[BaseType (typeof(NSDateFormatter))]
+	interface NSDateFormatter_LDUserModel
+	{
+		// +(instancetype)userDateFormatter;
+		[Static]
+		[Export ("userDateFormatter")]
+		NSDateFormatter UserDateFormatter ();
+	}
+
+	// @interface LaunchDarkly (NSDictionary)
+	[Category]
+	[BaseType (typeof(NSDictionary))]
+	interface NSDictionary_LaunchDarkly
+	{
+		// -(NSString * _Nullable)jsonString;
+		[Static, NullAllowed, Export ("jsonString")]
+		// [Verify (MethodToProperty)]
+		string JsonString { get; }
+
+		// -(NSDictionary * _Nonnull)compactMapUsingBlock:(id  _Nonnull (^ _Nonnull)(id _Nonnull))mappingBlock;
+		[Export ("compactMapUsingBlock:")]
+		NSDictionary CompactMapUsingBlock (Func<NSObject, NSObject> mappingBlock);
+	}
+
+	// @interface LaunchDarkly (NSHTTPURLResponse)
+	[Category]
+	[BaseType (typeof(NSHttpUrlResponse))]
+	interface NSHTTPURLResponse_LaunchDarkly
+	{
+		// @property (readonly, assign, nonatomic) BOOL isOk;
+		[Static, Export ("isOk")]
+		bool IsOk { get; }
+
+		// @property (readonly, assign, nonatomic) BOOL isNotModified;
+		[Static, Export ("isNotModified")]
+		bool IsNotModified { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * etag;
+		[Static, Export ("etag")]
+		string Etag { get; }
+
+		// -(BOOL)isUnauthorizedHTTPResponse;
+		[Static, Export ("isUnauthorizedHTTPResponse")]
+		// [Verify (MethodToProperty)]
+		bool IsUnauthorizedHTTPResponse { get; }
+
+		// -(NSDate *)headerDate;
+		[Static, Export ("headerDate")]
+		// [Verify (MethodToProperty)]
+		NSDate HeaderDate { get; }
+	}
+
+	// @interface NullRemovable (NSMutableDictionary)
+	[Category]
+	[BaseType (typeof(NSMutableDictionary))]
+	interface NSMutableDictionary_NullRemovable
+	{
+		// -(NSMutableDictionary *)removeNullValues;
+		[Static, Export ("removeNullValues")]
+		// [Verify (MethodToProperty)]
+		NSMutableDictionary RemoveNullValues { get; }
+	}
+
+	// @interface LaunchDarkly (NSNumber)
+	[Category]
+	[BaseType (typeof(NSNumber))]
+	interface NSNumber_LaunchDarkly
+	{
+		// -(LDMillisecond)ldMillisecondValue;
+		[Static, Export ("ldMillisecondValue")]
+		// [Verify (MethodToProperty)]
+		long LdMillisecondValue { get; }
+
+		// -(uint64_t)nanoSecondValue;
+		[Static, Export ("nanoSecondValue")]
+		// [Verify (MethodToProperty)]
+		ulong NanoSecondValue { get; }
+	}
+
+	// [Static]
+	// [Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const LDEventSourceKeyValueDelimiter;
 		[Field ("LDEventSourceKeyValueDelimiter", "__Internal")]
-		NSString kLD_LDEventSourceKeyValueDelimiter { get; }
+		NSString LDEventSourceKeyValueDelimiter { get; }
 
 		// extern NSString *const LDEventSourceEventTerminator;
 		[Field ("LDEventSourceEventTerminator", "__Internal")]
-		NSString kLD_LDEventSourceEventTerminator { get; }
+		NSString LDEventSourceEventTerminator { get; }
 
 		// extern NSString *const LDEventKeyData;
 		[Field ("LDEventKeyData", "__Internal")]
-		NSString kLD_LDEventKeyData { get; }
+		NSString LDEventKeyData { get; }
 
 		// extern NSString *const LDEventKeyId;
 		[Field ("LDEventKeyId", "__Internal")]
-		NSString kLD_LDEventKeyId { get; }
+		NSString LDEventKeyId { get; }
 
 		// extern NSString *const LDEventKeyEvent;
 		[Field ("LDEventKeyEvent", "__Internal")]
-		NSString kLD_LDEventKeyEvent { get; }
+		NSString LDEventKeyEvent { get; }
 
 		// extern NSString *const LDEventKeyRetry;
 		[Field ("LDEventKeyRetry", "__Internal")]
-		NSString kLD_LDEventKeyRetry { get; }
+		NSString LDEventKeyRetry { get; }
+	}
+
+	// @interface LDEventSource (NSString)
+	[Category]
+	[BaseType (typeof(NSString))]
+	interface NSString_LDEventSource
+	{
+		// @property (readonly, assign, nonatomic) BOOL hasEventPrefix;
+		[Static, Export ("hasEventPrefix")]
+		bool HasEventPrefix { get; }
+
+		// @property (readonly, assign, nonatomic) BOOL hasEventTerminator;
+		[Static, Export ("hasEventTerminator")]
+		bool HasEventTerminator { get; }
+
+		// -(NSArray<NSString *> *)lines;
+		[Static, Export ("lines")]
+		// [Verify (MethodToProperty)]
+		string[] Lines { get; }
+	}
+
+	// @interface LaunchDarkly (NSString)
+	[Category]
+	[BaseType (typeof(NSString))]
+	interface NSString_LaunchDarkly
+	{
+		// +(instancetype _Nonnull)stringWithBool:(BOOL)boolValue;
+		[Static]
+		[Export ("stringWithBool:")]
+		NSString StringWithBool (bool boolValue);
+	}
+
+	// @interface MainExecutable (NSThread)
+	[Category]
+	[BaseType (typeof(NSThread))]
+	interface NSThread_MainExecutable
+	{
+		// +(void)performOnMainThread:(void (^)(void))executionBlock waitUntilDone:(BOOL)wait;
+		[Static]
+		[Export ("performOnMainThread:waitUntilDone:")]
+		void PerformOnMainThread (Action executionBlock, bool wait);
+	}
+
+	// @interface LaunchDarkly (NSURLResponse)
+	[Category]
+	[BaseType (typeof(NSUrlResponse))]
+	interface NSURLResponse_LaunchDarkly
+	{
+		// @property (readonly, assign, nonatomic) BOOL isOk;
+		[Static, Export ("isOk")]
+		bool IsOk { get; }
+
+		// @property (readonly, assign, nonatomic) BOOL isNotModified;
+		[Static, Export ("isNotModified")]
+		bool IsNotModified { get; }
+
+		// @property (readonly, copy, nonatomic) NSString * etag;
+		[Static, Export ("etag")]
+		string Etag { get; }
+
+		// -(BOOL)isUnauthorizedHTTPResponse;
+		[Static, Export ("isUnauthorizedHTTPResponse")]
+		// [Verify (MethodToProperty)]
+		bool IsUnauthorizedHTTPResponse { get; }
+
+		// -(NSDate *)headerDate;
+		[Static, Export ("headerDate")]
+		// [Verify (MethodToProperty)]
+		NSDate HeaderDate { get; }
+	}
+
+	// @interface LaunchDarkly (NSURLSession)
+	[Category]
+	[BaseType (typeof(NSUrlSession))]
+	interface NSURLSession_LaunchDarkly
+	{
+		// +(void)setSharedLDSessionForConfig:(LDConfig * _Nonnull)config;
+		[Static]
+		[Export ("setSharedLDSessionForConfig:")]
+		void SetSharedLDSessionForConfig (LDConfig config);
+
+		// +(NSURLSession * _Nonnull)sharedLDSession;
+		[Static]
+		[Export ("sharedLDSession")]
+		// [Verify (MethodToProperty)]
+		NSUrlSession SharedLDSession { get; }
 	}
 }
