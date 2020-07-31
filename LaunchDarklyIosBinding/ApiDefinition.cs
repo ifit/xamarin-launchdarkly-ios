@@ -817,8 +817,10 @@ namespace LaunchDarkly
 		[Static]
 		[Export ("environmentForMobileKeyNamed:")]
 		[return: NullAllowed]
-		LDClientInterface EnvironmentForMobileKeyNamed (string name);
+		ILDClientInterface EnvironmentForMobileKeyNamed (string name);
 	}
+	
+	interface ILDClientInterface { }
 
 	// @interface LaunchDarkly (LDConfig)
 	[Category]
