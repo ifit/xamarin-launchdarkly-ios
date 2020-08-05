@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <Compile Include="library\libDarkly.linkwith.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
