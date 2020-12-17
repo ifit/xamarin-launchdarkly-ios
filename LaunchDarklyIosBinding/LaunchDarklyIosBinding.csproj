@@ -12,7 +12,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>iFit.LaunchDarkly.iOS</PackageId>
-    <PackageVersion>5.3.0-MOB-1278-video-walkthrough</PackageVersion>
+    <PackageVersion>5.3.1-MOB-1278</PackageVersion>
     <Authors>iFit</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ifit/xamarin-launchdarkly-ios</PackageProjectUrl>
@@ -47,11 +47,10 @@
     <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="library\libDarkly.a">
-      <Kind>Static</Kind>
+    <NativeReference Include="..\..\..\src\xamarin-launchdarkly-ios\LaunchDarkly.framework">
+      <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
-      <ForceLoad>True</ForceLoad>
-    </ObjcBindingNativeLibrary>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <Import Project="\tmp\nuget\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets" Condition="Exists('\tmp\nuget\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" />

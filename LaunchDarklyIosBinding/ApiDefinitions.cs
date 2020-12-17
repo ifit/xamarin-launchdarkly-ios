@@ -1,9 +1,8 @@
 using System;
 using Foundation;
-using LaunchDarkly;
 using ObjCRuntime;
 
-namespace Binding
+namespace LaunchDarkly
 {
 	// @interface LDInvalidArgumentError : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC12LaunchDarkly22LDInvalidArgumentError")]
@@ -15,7 +14,7 @@ namespace Binding
 	// @interface LDChangedFlag : NSObject
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
-	interface LDChangedFlag
+	interface LDChangedFlag : INativeObject
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull key;
 		[Export ("key")]
@@ -28,12 +27,10 @@ namespace Binding
 	{
 		// @property (readonly, copy, nonatomic) NSArray * _Nullable oldValue;
 		[NullAllowed, Export ("oldValue", ArgumentSemantic.Copy)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] OldValue { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray * _Nullable newValue;
 		[NullAllowed, Export ("newValue", ArgumentSemantic.Copy)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] NewValue { get; }
 
 		// @property (readonly, nonatomic) BOOL typeMismatch;
@@ -48,7 +45,6 @@ namespace Binding
 	{
 		// @property (readonly, copy, nonatomic) NSArray * _Nullable value;
 		[NullAllowed, Export ("value", ArgumentSemantic.Copy)]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] Value { get; }
 
 		// @property (readonly, nonatomic) NSInteger variationIndex;
@@ -127,7 +123,6 @@ namespace Binding
 		// +(LDClient * _Nullable)get __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("get")]
-		[Verify (MethodToProperty)]
 		LDClient Get { get; }
 
 		// +(LDClient * _Nullable)getWithEnvironment:(NSString * _Nonnull)environment __attribute__((warn_unused_result("")));
@@ -171,13 +166,11 @@ namespace Binding
 
 		// -(NSArray * _Nullable)arrayVariationForKey:(NSString * _Nonnull)key defaultValue:(NSArray * _Nullable)defaultValue __attribute__((warn_unused_result("")));
 		[Export ("arrayVariationForKey:defaultValue:")]
-		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
 		[return: NullAllowed]
 		NSObject[] ArrayVariationForKey (string key, [NullAllowed] NSObject[] defaultValue);
 
 		// -(ArrayEvaluationDetail * _Nonnull)arrayVariationDetailForKey:(NSString * _Nonnull)key defaultValue:(NSArray * _Nullable)defaultValue __attribute__((warn_unused_result("")));
 		[Export ("arrayVariationDetailForKey:defaultValue:")]
-		[Verify (StronglyTypedNSArray)]
 		ArrayEvaluationDetail ArrayVariationDetailForKey (string key, [NullAllowed] NSObject[] defaultValue);
 
 		// -(NSDictionary<NSString *,id> * _Nullable)dictionaryVariationForKey:(NSString * _Nonnull)key defaultValue:(NSDictionary<NSString *,id> * _Nullable)defaultValue __attribute__((warn_unused_result("")));
@@ -367,7 +360,6 @@ namespace Binding
 
 		// -(NSDictionary<NSString *,NSString *> * _Nonnull)getSecondaryMobileKeys __attribute__((warn_unused_result("")));
 		[Export ("getSecondaryMobileKeys")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> SecondaryMobileKeys { get; }
 
 		// -(BOOL)setSecondaryMobileKeys:(NSDictionary<NSString *,NSString *> * _Nonnull)keys error:(NSError * _Nullable * _Nullable)error;
