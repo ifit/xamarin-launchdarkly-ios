@@ -12,7 +12,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>iFit.LaunchDarkly.iOS</PackageId>
-    <PackageVersion>5.3.1-MOB-1278</PackageVersion>
+    <PackageVersion>5.3.1-alpha3</PackageVersion>
     <Authors>iFit</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ifit/xamarin-launchdarkly-ios</PackageProjectUrl>
@@ -47,9 +47,9 @@
     <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\src\xamarin-launchdarkly-ios\LaunchDarkly.framework">
+    <NativeReference Include="LaunchDarkly.framework">
       <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
+      <Frameworks>Foundation UIKit</Frameworks>     
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
