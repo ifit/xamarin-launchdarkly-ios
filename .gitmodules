@@ -1,0 +1,3 @@
+[submodule "ios-client-sdk"]
+	path = ios-client-sdk
+	url = git@github.com:ifit/ios-client-sdk.git
