@@ -12,7 +12,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>iFit.LaunchDarkly.iOS</PackageId>
-    <PackageVersion>5.3.1-alpha3</PackageVersion>
+    <PackageVersion>5.3.2-alpha1</PackageVersion>
     <Authors>iFit</Authors>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ifit/xamarin-launchdarkly-ios</PackageProjectUrl>
